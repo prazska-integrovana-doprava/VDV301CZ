@@ -8,9 +8,9 @@
 	</AdditionalTextMessageHeadline>
 	<AdditionalTextMessageText>
 		<Value>Od soboty
-			<b>1. září 2018</b> dochází k trvalé změně linkového vedení autobusů PID
-			<b>v oblasti Radotínska</b>. Podrobnosti naleznete na zastávkách a na
-			<b>www.pid.cz</b>.
+			&lt;b&gt;1. září 2018&lt;/b&gt; dochází k trvalé změně linkového vedení autobusů PID
+			&lt;b&gt;v oblasti Radotínska&lt;/b&gt;. Podrobnosti naleznete na zastávkách a na
+			&lt;b&gt;www.pid.cz&lt;/b&gt;.
 		</Value>
 		<Language>cs</Language>
 	</AdditionalTextMessageText>
