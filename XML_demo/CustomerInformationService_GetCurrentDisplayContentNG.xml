@@ -1,0 +1,47 @@
+<CustomerInformationService.GetCurrentDisplayContentResponse>
+	<CurrentDisplayContentData>
+		<TimeStamp>
+			<Value>2019-01-28T16:14:55</Value>
+		</TimeStamp>
+		<CurrentDisplayContent>
+			<LineInformation>
+				<LineProperty>Day</LineProperty>
+				<LineName>
+					<Value>608</Value>
+					<Language>cs</Language>
+				</LineName>
+				<LineShortName>
+					<Value>608</Value>
+					<Language>cs</Language>
+				</LineShortName>
+				<LineNumber>
+					<Value>100608</Value>
+				</LineNumber>
+			</LineInformation>
+			<Destination>
+				<DestinationName>
+					<Value>Třebichovice, U Kapličky</Value>
+					<Language>cs</Language>
+				</DestinationName>
+				<DestinationShortName>
+					<Value>Třebichovice, U Kapl.</Value>
+					<Language>cs</Language>
+				</DestinationShortName>
+			</Destination>
+			<ViaPoint>
+				<ViaPointProperty>Train</ViaPointProperty>
+				<PlaceName>
+					<Value>Kostelec n. L., Žel. st.</Value>
+					<Language>cs</Language>
+				</PlaceName>
+				<PlaceShortName>
+					<Value>Kost.n.L.,Žel.st.</Value>
+					<Language>cs</Language>
+				</PlaceShortName>
+				<ViaPointDisplayPriority>
+					<Value>1</Value>
+				</ViaPointDisplayPriority>
+			</ViaPoint>
+		</CurrentDisplayContent>
+	</CurrentDisplayContentData>
+</CustomerInformationService.GetCurrentDisplayContentResponse>
