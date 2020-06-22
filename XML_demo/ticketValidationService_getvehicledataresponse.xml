@@ -1,0 +1,14 @@
+<TicketValidationService.GetVehicleDataResponse>
+  <VehicleData>
+    <TimeStamp>
+			<Value>2019-01-28T16:14:55</Value>
+		</TimeStamp>
+    <VehicleRef>
+      <Value>9632</Value>
+    </VehicleRef>
+    <VehicleMode>
+      <PtMainMode>BusSubmode</PtMainMode>
+      <BusSubmode>localBus</BusSubmode>
+    </VehicleMode>
+  </VehicleData>
+</TicketValidationService.GetVehicleDataResponse>
