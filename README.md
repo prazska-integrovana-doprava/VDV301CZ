@@ -4,7 +4,8 @@ This is modified version of VDV301 for usage in Czech Republic, especially for P
 All the changes are to be slowly proposed and merged into official/mainline VDV301.
 The documentation is available in Czech at the moment.
 
-
+### Graphic design manual for passenger information systems
+https://pid.cz/wp-content/uploads/2018/04/Priloha_10_OIS_ve_vozidlech_PID_vcetne_navaznych_priloh.pdf
 
 ### Weblinks to original VDV301
 
