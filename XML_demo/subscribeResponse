@@ -1,0 +1,4 @@
+	<SubscribeResponse>
+	<Active><Value>true</Value></Active>
+	<Heartbeat><Value>PT60S</Value></Heartbeat>
+	</SubscribeResponse>

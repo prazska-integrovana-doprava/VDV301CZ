@@ -305,17 +305,31 @@
     </TimetableDelay>
     <!-- -->
     <AdditionalTextMessage>
-      <AdditionalTextMessageType>Air</AdditionalTextMessageType>
-      <AdditionalTextMessageHeadline>
-        <Value>Informace o výluce</Value>
-        <Language>cs</Language>
-      </AdditionalTextMessageHeadline>
-      <AdditionalTextMessageText>
-        <Value>XXX</Value>
-        <Language>cs</Language>
-      </AdditionalTextMessageText>
+    	<AdditionalTextMessageType>Pid</AdditionalTextMessageType>
+    	<AdditionalTextMessageHeadline>
+    		<Value>Změna linkového vedení BUS</Value>
+    		<Language>cs</Language>
+    	</AdditionalTextMessageHeadline>
+    	<AdditionalTextMessageText>
+    		<Value>Od soboty
+    			&lt;b&gt;1. září 2018&lt;/b&gt; dochází k trvalé změně linkového vedení autobusů PID
+    			&lt;b&gt;v oblasti Radotínska&lt;/b&gt;. Podrobnosti naleznete na zastávkách a na
+    			&lt;b&gt;www.pid.cz&lt;/b&gt;.
+    		</Value>
+    		<Language>cs</Language>
+    	</AdditionalTextMessageText>
+    	<AdditionalTextMessageText>
+    		<Value>
+    			From saturday,
+    						&lt;b&gt;the 1st September 2018&lt;/b&gt;, several permanent changes and modifications will take place in operation of the PID system in
+    						&lt;b&gt;Radotín area&lt;/b&gt;. Visit
+    						&lt;b&gt;www.pid.cz&lt;/b&gt; for more information.
 
+    		</Value>
+    		<Language>en</Language>
+    	</AdditionalTextMessageText>
     </AdditionalTextMessage>
+
   </TripInformation>
   <CurrentStopIndex>
     <Value>2</Value>

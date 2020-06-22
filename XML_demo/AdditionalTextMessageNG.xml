@@ -1,7 +1,5 @@
-﻿<AdditionalTextMessage>
-	<AdditionalTextMessageType>
-		<Value>Pid</Value>
-	</AdditionalTextMessageType>
+<AdditionalTextMessage>
+	<AdditionalTextMessageType>Pid</AdditionalTextMessageType>
 	<AdditionalTextMessageHeadline>
 		<Value>Změna linkového vedení BUS</Value>
 		<Language>cs</Language>
