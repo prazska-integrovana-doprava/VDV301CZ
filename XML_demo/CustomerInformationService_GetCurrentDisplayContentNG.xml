@@ -42,6 +42,9 @@
 					<Value>1</Value>
 				</ViaPointDisplayPriority>
 			</ViaPoint>
+			<RunNumber>
+				<Value>8</Value>
+			</RunNumber>
 		</CurrentDisplayContent>
 	</CurrentDisplayContentData>
 </CustomerInformationService.GetCurrentDisplayContentResponse>
