@@ -52,7 +52,6 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Interchange"/>
 			<xs:enumeration value="ProtectedConnection"/>
-			<xs:enumeration value="Static"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ConnectionPropertyEnumeration">
