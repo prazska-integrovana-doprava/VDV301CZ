@@ -332,6 +332,11 @@
 					<xs:documentation>Information on the via points which should be displayed</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="RunNumber" type="IBIS-IP.int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The run number (Kurs-Nummer) the trip is operated </xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="AdditionalInformation" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Additional Information Text, which could be displayed, e.g. "Extra Ride", "Express", ... </xs:documentation>
@@ -692,6 +697,21 @@
 			<xs:element name="RouteDirection" type="RouteDirectionEnumeration" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The direction of the route, 1->forward 2->backwards and  0->UNDEFINED </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RunNumber" type="IBIS-IP.int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The run number (Kurs-Nummer) the trip is operated </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PatternNumber" type="IBIS-IP.int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The pattern number (Linienfahrweg-Nummer) the trip is operated </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PathDestinationNumber" type="IBIS-IP.int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The path destination number (RoutenZiel-Nummer) the trip is operated </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
