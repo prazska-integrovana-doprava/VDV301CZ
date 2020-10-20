@@ -20,7 +20,8 @@
 			</LineInformation>
 			<Destination>
 				<DestinationName>
-					<Value>Třebichovice, U Kapličky</Value>
+					<!-- <Value>Třebichovice, U Kapličky&#81;</Value> -->
+					<Value>Třebichovice, U Kapličky&#81;</Value>
 					<Language>cs</Language>
 				</DestinationName>
 				<DestinationShortName>
