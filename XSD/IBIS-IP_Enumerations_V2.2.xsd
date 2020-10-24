@@ -35,6 +35,20 @@
 			<xs:enumeration value="WheelChair"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="CommandMessageTypeEnumeration">
+			<xs:annotation>
+				<xs:documentation>Message type for CommandReceiver</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Ok"/>
+				<xs:enumeration value="Error"/>
+				<xs:enumeration value="DestinationRequest"/>
+				<xs:enumeration value="GetOnRequest"/>
+				<xs:enumeration value="StartRazzia"/>
+				<xs:enumeration value="StopRazzia"/>
+			</xs:restriction>
+		</xs:simpleType>
+
 	<xs:simpleType name="ConnectionStateEnumeration">
 		<xs:annotation>
 			<xs:documentation>Information whether a connection will rest protected</xs:documentation>

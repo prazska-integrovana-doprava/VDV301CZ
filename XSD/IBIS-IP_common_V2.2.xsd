@@ -229,6 +229,15 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="CommandReceiverMessageStructure">
+		<xs:annotation>
+			<xs:documentation>Structure for describing message received by Remote control receiver</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MessageType" type="CommandMessageTypeEnumeration"/>
+			<xs:element name="MessageParameter" type="IBIS-IP.string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="DataVersionStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing data-versions</xs:documentation>

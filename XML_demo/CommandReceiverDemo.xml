@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CommandReceiver.Data>
+  <TimeStamp>
+      <Value>2002-09-24+06:00</Value>
+  </TimeStamp>
+  <MessageContent>
+    <MessageType>
+      <Value>StartRazzia</Value>
+    </MessageType>
+    <MessageParameter>
+      <Value>6503</Value>
+    </MessageParameter>
+  </MessageContent>
+</CommandReceiver.Data>
