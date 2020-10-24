@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- remote control receiver service -->
 <CommandReceiver.Data>
   <TimeStamp>
-      <Value>2002-09-24+06:00</Value>
+      <Value>1980-03-23T10:20:15</Value>
   </TimeStamp>
   <MessageContent>
-    <MessageType>
-      <Value>StartRazzia</Value>
-    </MessageType>
+    <MessageType>StartRazzia</MessageType>
     <MessageParameter>
       <Value>6503</Value>
     </MessageParameter>
