@@ -44,8 +44,8 @@
 				<xs:enumeration value="Error"/>
 				<xs:enumeration value="DestinationRequest"/>
 				<xs:enumeration value="GetOnRequest"/>
-				<xs:enumeration value="StartRazzia"/>
-				<xs:enumeration value="StopRazzia"/>
+				<xs:enumeration value="StartRazzia"/> <!-- needs to be combined with Message parameter containing vehicle number -->
+				<xs:enumeration value="StopRazzia"/><!-- needs to be combined with Message parameter containing vehicle number -->
 			</xs:restriction>
 		</xs:simpleType>
 
