@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- remote control receiver service -->
-<CommandReceiver.Data>
+<RemoteControl.Data>
   <TimeStamp>
       <Value>1980-03-23T10:20:15</Value>
   </TimeStamp>
@@ -10,4 +10,4 @@
       <Value>6503</Value>
     </MessageParameter>
   </MessageContent>
-</CommandReceiver.Data>
+</RemoteControl.Data>

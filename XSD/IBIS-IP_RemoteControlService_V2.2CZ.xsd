@@ -3,16 +3,16 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:include schemaLocation="IBIS-IP_common_V2.2.xsd"/>
 	<!--==== Service Definitions ====-->
-	<xs:element name="CommandReceiver.Data" type="CommandReceiver.DataStructure"/>
+	<xs:element name="RemoteControl.Data" type="RemoteControl.DataStructure"/>
 	<!--==== Structure Definitions ====-->
-	<xs:complexType name="CommandReceiver.DataStructure">
+	<xs:complexType name="RemoteControl.DataStructure">
 		<xs:sequence>
 			<xs:element name="TimeStamp" type="IBIS-IP.dateTime">
 				<xs:annotation>
-					<xs:documentation>Content received in message</xs:documentation>
+					<xs:documentation>Time of RF signal reception</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="MessageContent" type="CommandReceiverMessageStructure" >
+			<xs:element name="MessageContent" type="RemoteControlMessageStructure" >
 				<xs:annotation>
 					<xs:documentation>Content received in message</xs:documentation>
 				</xs:annotation>

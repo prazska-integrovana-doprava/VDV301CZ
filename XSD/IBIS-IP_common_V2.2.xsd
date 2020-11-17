@@ -229,12 +229,12 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="CommandReceiverMessageStructure">
+	<xs:complexType name="RemoteControlMessageStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing message received by Remote control receiver</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="MessageType" type="CommandMessageTypeEnumeration"/>
+			<xs:element name="MessageType" type="RemoteControlMessageTypeEnumeration"/>
 			<xs:element name="MessageParameter" type="IBIS-IP.string" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>

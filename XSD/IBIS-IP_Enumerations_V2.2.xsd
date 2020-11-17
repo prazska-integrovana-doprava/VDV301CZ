@@ -35,9 +35,9 @@
 			<xs:enumeration value="WheelChair"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="CommandMessageTypeEnumeration">
+	<xs:simpleType name="RemoteControlMessageTypeEnumeration">
 			<xs:annotation>
-				<xs:documentation>Message type for CommandReceiver</xs:documentation>
+				<xs:documentation>Message type for CommandReceiver/RemoteControl</xs:documentation>
 			</xs:annotation>
 			<xs:restriction base="xs:string">
 				<xs:enumeration value="Ok"/>
