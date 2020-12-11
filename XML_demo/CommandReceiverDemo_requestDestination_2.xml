@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- remote control receiver service -->
+<RemoteControlService.GetAllDataResponse>
+  <TimeStamp>
+      <Value>1980-03-23T10:20:15</Value>
+  </TimeStamp>
+  <MessageContent>
+    <MessageType>DestinationRequest</MessageType>
+  </MessageContent>
+</RemoteControlService.GetAllDataResponse>
