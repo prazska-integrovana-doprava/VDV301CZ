@@ -122,6 +122,7 @@
 			<xs:enumeration value="TestDevice"/>
 			<xs:enumeration value="MultiFunctionalDisplay"/>
 			<xs:enumeration value="CombiDevice"/>
+			<xs:enumeration value="RemoteControlReceiver"/> <!-- povelový přijímač -->
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="DeviceStateEnumeration">
