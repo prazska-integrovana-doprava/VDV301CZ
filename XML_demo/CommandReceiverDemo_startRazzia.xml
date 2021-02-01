@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- remote control receiver service -->
-<RemoteControl.Data>
+<RemoteControlService.GetAllDataResponse>
   <TimeStamp>
       <Value>1980-03-23T10:20:15</Value>
   </TimeStamp>
   <MessageContent>
     <MessageType>StartRazzia</MessageType>
     <MessageParameter>
-      <Value>6503</Value>
+      <Value>6503</Value> <!-- vehicle ID to start razzia in -->
     </MessageParameter>
   </MessageContent>
-</RemoteControl.Data>
+</RemoteControlService.GetAllDataResponse>
