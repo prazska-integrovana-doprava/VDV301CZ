@@ -7,15 +7,15 @@
 	<xs:group name="CustomerInformationServiceOperations">
 		<xs:sequence>
 			<xs:element name="CustomerInformationService.GetAllDataResponse" type="CustomerInformationService.GetAllDataResponseStructure"/>
-			<xs:element name="CustomerInformationService.GetCurrentAnnouncementResponse" type="CustomerInformationService.GetCurrentAnnouncementResponseStructure"/>
-			<xs:element name="CustomerInformationService.GetCurrentConnectionInformationResponse" type="CustomerInformationService.GetCurrentConnectionInformationResponseStructure"/>
+		<!--	<xs:element name="CustomerInformationService.GetCurrentAnnouncementResponse" type="CustomerInformationService.GetCurrentAnnouncementResponseStructure"/> -->
+		<!--	<xs:element name="CustomerInformationService.GetCurrentConnectionInformationResponse" type="CustomerInformationService.GetCurrentConnectionInformationResponseStructure"/> -->
 			<xs:element name="CustomerInformationService.GetCurrentDisplayContentResponse" type="CustomerInformationService.GetCurrentDisplayContentResponseStructure"/>
 			<xs:element name="CustomerInformationService.GetCurrentStopPointResponse" type="CustomerInformationService.GetCurrentStopPointResponseStructure"/>
-			<xs:element name="CustomerInformationService.GetCurrentStopIndexResponse" type="CustomerInformationService.GetCurrentStopIndexResponseStructure"/>
-			<xs:element name="CustomerInformationService.GetTripDataResponse" type="CustomerInformationService.GetTripDataResponseStructure"/>
+		<!--	<xs:element name="CustomerInformationService.GetCurrentStopIndexResponse" type="CustomerInformationService.GetCurrentStopIndexResponseStructure"/> -->
+		<!--	<xs:element name="CustomerInformationService.GetTripDataResponse" type="CustomerInformationService.GetTripDataResponseStructure"/> -->
 			<xs:element name="CustomerInformationService.GetVehicleDataResponse" type="CustomerInformationService.GetVehicleDataResponseStructure"/>
-			<xs:element name="CustomerInformationService.RetrievePartialStopSequenceRequest" type="CustomerInformationService.RetrievePartialStopSequenceRequestStructure"/>
-			<xs:element name="CustomerInformationService.RetrievePartialStopSequenceResponse" type="CustomerInformationService.RetrievePartialStopSequenceResponseStructure"/>
+		<!--	<xs:element name="CustomerInformationService.RetrievePartialStopSequenceRequest" type="CustomerInformationService.RetrievePartialStopSequenceRequestStructure"/> -->
+		<!--	<xs:element name="CustomerInformationService.RetrievePartialStopSequenceResponse" type="CustomerInformationService.RetrievePartialStopSequenceResponseStructure"/> -->
 		</xs:sequence>
 	</xs:group>
 	<!--=== ServiceDefinitions ===-->
@@ -30,8 +30,16 @@
 	<xs:complexType name="CustomerInformationService.AllData">
 		<xs:sequence>
 			<xs:element name="TimeStamp" type="IBIS-IP.dateTime"/>
-			<xs:element name="VehicleRef" type="IBIS-IP.NMTOKEN"/>
-			<xs:element name="DefaultLanguage" type="IBIS-IP.language"/>
+			<xs:element name="VehicleRef" type="IBIS-IP.NMTOKEN"> <!-- evidenční číslo vozidla -->
+				<xs:annotation>
+					<xs:documentation>evidenční číslo vozidla PID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DefaultLanguage" type="IBIS-IP.language">
+				<xs:annotation>
+					<xs:documentation>pro PID čeština, tedy "cs"</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="TripInformation" type="TripInformationStructure" minOccurs="0" maxOccurs="2">
 				<xs:annotation>
 					<xs:documentation>if vehicle is not on a trip and no tripinformation is available occurrence typically is 0
@@ -49,12 +57,13 @@
 				<xs:annotation>
 					<xs:documentation>Global display content - this content should be used if no stop specific display content is available
 					please make sure that the global display content and the stop specific content are provided for the same DisplayContentRefs. </xs:documentation>
+					Používat jen pro služební cíle!
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!--++ CurrentAnnouncement ++-->
-	<xs:element name="CustomerInformationService.GetCurrentAnnouncementResponse" type="CustomerInformationService.GetCurrentAnnouncementResponseStructure"/>
+<!--	<xs:element name="CustomerInformationService.GetCurrentAnnouncementResponse" type="CustomerInformationService.GetCurrentAnnouncementResponseStructure"/>
 	<xs:complexType name="CustomerInformationService.GetCurrentAnnouncementResponseStructure">
 		<xs:choice>
 			<xs:element name="CurrentAnnouncementData" type="CustomerInformationService.CurrentAnnouncementData"/>
@@ -67,7 +76,10 @@
 			<xs:element name="CurrentAnnouncement" type="AnnouncementStructure"/>
 		</xs:sequence>
 	</xs:complexType>
+-->
+
 	<!--++ CurrentConnection ++-->
+	<!--
 	<xs:element name="CustomerInformationService.GetCurrentConnectionInformationResponse" type="CustomerInformationService.GetCurrentConnectionInformationResponseStructure"/>
 	<xs:complexType name="CustomerInformationService.GetCurrentConnectionInformationResponseStructure">
 		<xs:choice>
@@ -81,6 +93,7 @@
 			<xs:element name="CurrentConnection" type="ConnectionStructure" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+-->
 	<!--++ CurrentDisplayContent ++-->
 	<xs:element name="CustomerInformationService.GetCurrentDisplayContentResponse" type="CustomerInformationService.GetCurrentDisplayContentResponseStructure"/>
 	<xs:complexType name="CustomerInformationService.GetCurrentDisplayContentResponseStructure">
@@ -110,6 +123,7 @@
 		</xs:sequence>
 	</xs:complexType>
 	<!--++ CurrentStopIndex ++-->
+	<!--
 	<xs:element name="CustomerInformationService.GetCurrentStopIndexResponse" type="CustomerInformationService.GetCurrentStopIndexResponseStructure"/>
 	<xs:complexType name="CustomerInformationService.GetCurrentStopIndexResponseStructure">
 		<xs:choice>
@@ -123,7 +137,9 @@
 			<xs:element name="CurrentStopIndex" type="IBIS-IP.int"/>
 		</xs:sequence>
 	</xs:complexType>
+	-->
 	<!--++ TripData ++-->
+	<!--
 	<xs:element name="CustomerInformationService.GetTripDataResponse" type="CustomerInformationService.GetTripDataResponseStructure"/>
 	<xs:complexType name="CustomerInformationService.GetTripDataResponseStructure">
 		<xs:choice>
@@ -144,6 +160,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+-->
 	<!--++ VehicleData ++-->
 	<xs:element name="CustomerInformationService.GetVehicleDataResponse" type="CustomerInformationService.GetVehicleDataResponseStructure"/>
 	<xs:complexType name="CustomerInformationService.GetVehicleDataResponseStructure">
@@ -159,7 +176,9 @@
 			<xs:group ref="VehicleInformationGroup"/>
 		</xs:sequence>
 	</xs:complexType>
+
 	<!--==== RetrievePartialStopSequence ====-->
+	<!--
 	<xs:element name="CustomerInformationService.RetrievePartialStopSequenceRequest" type="CustomerInformationService.RetrievePartialStopSequenceRequestStructure"/>
 	<xs:complexType name="CustomerInformationService.RetrievePartialStopSequenceRequestStructure">
 		<xs:sequence>
@@ -180,6 +199,7 @@
 			<xs:element name="StopSequence" type="StopSequenceStructure"/>
 		</xs:sequence>
 	</xs:complexType>
+-->
 	<!--==== Group Definitions ====-->
 	<xs:group name="VehicleInformationGroup">
 		<xs:sequence>
@@ -205,29 +225,33 @@
 			</xs:element>
 			<xs:element name="ExitSide" type="ExitSideEnumeration" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Defines the exit side     		</xs:documentation>
+					<xs:documentation>Pro budoucí využití v metru, lze vynechat | Defines the exit side</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MovingDirectionForward" type="IBIS-IP.boolean" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Gives information, if the vehicle is moving forward, default value is "true"</xs:documentation>
+					<xs:documentation>Pro budoucí využití u obousměrných tramvajích, v autobusu lze vynechat | Gives information, if the vehicle is moving forward, default value is "true"</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<!--
 			<xs:element name="VehicleMode" type="VehicleModeEnumeration" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>DEPRECATED, is of type VehicleModeEnumeration. MyOwnVehicleMode SHOULD BE USED INSTEAD</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+		-->
 			<xs:element name="MyOwnVehicleMode" type="NetexMode" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Mode- and Submode information vehicle I am in - in accordance with Netex</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<!--
 			<xs:element name="SpeakerActive" type="IBIS-IP.boolean" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Gives information, if the loud speaker is activated for a passenger announcement</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+		-->
 			<xs:element name="StopInformationActive" type="IBIS-IP.boolean" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Gives information, if the stopInformation inside the vehicle is in active or in passiv state (intentionally, e.g. due to "route left)</xs:documentation>

@@ -131,7 +131,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="CardApplInformations">
+	<!-- <xs:complexType name="CardApplInformations">
 		<xs:sequence>
 			<xs:element name="CardApplInformationLength" type="IBIS-IP.unsignedInt">
 				<xs:annotation>
@@ -144,8 +144,8 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="CardTicketData">
+	</xs:complexType> -->
+	<!--<xs:complexType name="CardTicketData">
 		<xs:sequence>
 			<xs:element name="CardTicketDataID" type="IBIS-IP.unsignedLong"/>
 			<xs:element name="CardTicketDataLength" type="IBIS-IP.unsignedInt">
@@ -159,15 +159,15 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="CardType">
+	</xs:complexType> -->
+	<!--<xs:complexType name="CardType">
 		<xs:sequence>
 			<xs:element name="CardSerialNumber" type="IBIS-IP.NMTOKEN"/>
 			<xs:element name="CardTypeID" type="IBIS-IP.NMTOKEN"/>
 			<xs:element name="CardTypeText" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="ConnectionStructure">
+	</xs:complexType> -->
+	<!-- <xs:complexType name="ConnectionStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing a connection</xs:documentation>
 		</xs:annotation>
@@ -228,8 +228,8 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="RemoteControlMessageStructure">
+	</xs:complexType> -->
+	<!-- <xs:complexType name="RemoteControlMessageStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing message received by Remote control receiver</xs:documentation>
 		</xs:annotation>
@@ -237,8 +237,8 @@
 			<xs:element name="MessageType" type="RemoteControlMessageTypeEnumeration"/>
 			<xs:element name="MessageParameter" type="IBIS-IP.string" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="DataVersionStructure">
+	</xs:complexType> -->
+	<!-- <xs:complexType name="DataVersionStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing data-versions</xs:documentation>
 		</xs:annotation>
@@ -254,13 +254,13 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="DataVersionListStructure">
+	</xs:complexType> -->
+	<!-- <xs:complexType name="DataVersionListStructure">
 		<xs:sequence>
 			<xs:element name="DataVersion" type="DataVersionStructure" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="DestinationStructure">
+	</xs:complexType> -->
+	<!-- <xs:complexType name="DestinationStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing destination information</xs:documentation>
 		</xs:annotation>
@@ -286,26 +286,26 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="DeviceInformationStructure">
+	</xs:complexType> -->
+	<!-- <xs:complexType name="DeviceInformationStructure">
 		<xs:sequence>
 			<xs:group ref="DeviceInformationGroup"/>
 			<xs:element name="DataVersionList" type="DataVersionListStructure" minOccurs="0"/>
 			<xs:element name="WebInterfaceAddress" type="IBIS-IP.anyURI" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="DeviceSpecificationListStructure">
+	</xs:complexType> -->
+	<!-- <xs:complexType name="DeviceSpecificationListStructure">
 		<xs:sequence>
 			<xs:element name="DeviceSpecification" type="DeviceSpecificationStructure" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="DeviceSpecificationStructure">
+	</xs:complexType> -->
+	<!-- <xs:complexType name="DeviceSpecificationStructure">
 		<xs:sequence>
 			<xs:element name="DeviceClass" type="DeviceClassEnumeration"/>
 			<xs:element name="DeviceID" type="IBIS-IP.NMTOKEN"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="DeviceSpecificationWithStateStructure">
+	</xs:complexType> -->
+	<!-- <xs:complexType name="DeviceSpecificationWithStateStructure">
 		<xs:sequence>
 			<xs:element name="DeviceSpecification" type="DeviceSpecificationStructure"/>
 			<xs:element name="DeviceState" type="DeviceStateEnumeration"/>
@@ -316,7 +316,8 @@
 			<xs:element name="DeviceSpecificationWithState" type="DeviceSpecificationWithStateStructure" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="DisplayContentStructure">
+	-->
+ <xs:complexType name="DisplayContentStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing the information for a headsign or a sidesign</xs:documentation>
 		</xs:annotation>
@@ -352,7 +353,8 @@
 				</xs:annotation>
 			</xs:group>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType> -->
+
 	<xs:complexType name="FareZoneInformationStructure">
 		<xs:sequence>
 			<xs:element name="FareZoneID" type="IBIS-IP.NMTOKEN" minOccurs="0">
@@ -364,8 +366,8 @@
 			<xs:element name="FareZoneLongName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="FareZoneShortName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="GlobalCardStatus">
+	</xs:complexType> -->
+<!-- 	<xs:complexType name="GlobalCardStatus">
 		<xs:sequence>
 			<xs:element name="GlobalCardStausID" type="IBIS-IP.unsignedInt">
 				<xs:annotation>
@@ -378,8 +380,9 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="GNSSPointStructure">
+	</xs:complexType> -->
+
+ 	<xs:complexType name="GNSSPointStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing a GNSS-Point</xs:documentation>
 		</xs:annotation>

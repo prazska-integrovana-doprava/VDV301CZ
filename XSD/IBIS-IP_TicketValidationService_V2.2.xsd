@@ -2,7 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:include schemaLocation="IBIS-IP_common_V2.2.xsd"/>
 	<xs:include schemaLocation="IBIS-IP_Enumerations_V2.2.xsd"/>
-	
+
 	<!--====  TicketValidationService ====-->
 	<xs:element name="TicketValidationService.GetCurrentTariffStopResponse"  type="TicketValidationService.GetCurrentTariffStopResponseStructure"/>
 	<xs:element name="TicketValidationService.GetRazziaResponse"            type="TicketValidationService.GetRazziaResponseStructure"/>
@@ -21,7 +21,7 @@
 			<xs:element name="TicketValidationService.RetrieveTripDataResponse"     type="TicketValidationService.RetrieveTripDataResponseStructure"/>
 		</xs:sequence>
 	</xs:group>
-	
+
 	<!--++ CurrentTariffStop ++-->
 	<xs:complexType name="TicketValidationService.GetCurrentTariffStopResponseStructure">
 		<xs:choice>
@@ -43,7 +43,7 @@
 			<xs:element name="OperationErrorMessage" type="IBIS-IP.string"/>
 		</xs:choice>
 	</xs:complexType>
-	
+
 	<xs:complexType name="TicketValidationService.RazziaResponseDataStructure">
 		<xs:sequence>
 			<xs:element name="TimeStamp" type="IBIS-IP.dateTime"/>
@@ -81,7 +81,7 @@
 			<xs:element name="DriverNumber" type="IBIS-IP.string" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-	
+
 	<!--++ RetrieveTripData ++-->
 	<xs:complexType name="TicketValidationService.RetrieveTripDataRequestStructure">
 		<xs:sequence>
@@ -94,12 +94,12 @@
 			<xs:element name="OperationErrorMessage" type="IBIS-IP.string"/>
 		</xs:choice>
 	</xs:complexType>
-	
+
 	<xs:complexType name="TicketValidationService.TripDataStructure">
 		<xs:sequence>
 			<xs:element name="TimeStamp" type="IBIS-IP.dateTime"/>
 			<xs:element name="TripInformation" type="TripInformationStructure"/>
 		</xs:sequence>
 	</xs:complexType>
-	
+
 </xs:schema>
