@@ -13,8 +13,7 @@
     </TripRef>
     <StopSequence>
       <StopPoint>
-        <StopIndex><Value>1</Value></StopIndex>
-        <StopProperty>RequestStop</StopProperty>
+        <StopIndex><Value>1</Value></StopIndex>        
         <StopName>
           <Value>XXX</Value>
           <Language>cs</Language>
@@ -23,6 +22,7 @@
           <Value>XXX</Value>
           <Language>cs</Language>
         </StopAlternativeName>
+        <StopProperty>RequestStop</StopProperty>
         <Platform>
           <Value>A</Value>
         </Platform>
@@ -40,8 +40,6 @@
             <LineNumber>
               <Value>1</Value>
             </LineNumber>
-
-
           </LineInformation>
           <Destination>
             <DestinationProperty>Train</DestinationProperty>
@@ -137,7 +135,6 @@
             <BusSubmode>localBus</BusSubmode>
           </ConnectionMode>
         </Connection>
-
         <FareZone>
   				<FareZoneType>
   					<FareZoneTypeName>
@@ -156,8 +153,7 @@
   			</FareZone>
       </StopPoint>
       <StopPoint>
-        <StopIndex><Value>2</Value></StopIndex>
-        <StopProperty>RequestStop</StopProperty>
+        <StopIndex><Value>2</Value></StopIndex>        
         <StopName>
           <Value>XXX</Value>
           <Language>cs</Language>
@@ -166,6 +162,7 @@
           <Value>XXX</Value>
           <Language>cs</Language>
         </StopAlternativeName>
+        <StopProperty>RequestStop</StopProperty>
         <Platform>
           <Value>A</Value>
         </Platform>

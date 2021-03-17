@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Mit XMLSpy v2012 rel. 2 sp1 (http://www.altova.com) von Dirk Weißer (INIT GmbH) bearbeitet -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:include schemaLocation="IBIS-IP_common_V2.2.xsd"/>
-<!--	<xs:group name="RemoteControlServiceOperations">
+	<xs:include schemaLocation="IBIS-IP_common_V2.2CZ1.0.xsd"/>
+	<!--	<xs:group name="RemoteControlServiceOperations">
 		<xs:sequence>
 -->
-			<xs:element name="RemoteControlService.GetAllDataResponse" type="RemoteControlService.GetAllDataResponseStructure"/>
-<!--		</xs:sequence>
+	<xs:element name="RemoteControlService.GetAllDataResponse" type="RemoteControlService.GetAllDataResponseStructure"/>
+	<!--		</xs:sequence>
 	</xs:group>
 
 -->
 	<!--==== Service Definitions ====-->
-	<!--==== Structure Definitions ====-->
+	<!--++ GetAllData ++-->
 	<xs:complexType name="RemoteControlService.GetAllDataResponseStructure">
 		<xs:sequence>
 			<xs:element name="TimeStamp" type="IBIS-IP.dateTime">
@@ -19,7 +19,7 @@
 					<xs:documentation>Time of RF signal reception</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="MessageContent" type="RemoteControlMessageStructure" >
+			<xs:element name="MessageContent" type="RemoteControlMessageStructure">
 				<xs:annotation>
 					<xs:documentation>Content received in message</xs:documentation>
 				</xs:annotation>

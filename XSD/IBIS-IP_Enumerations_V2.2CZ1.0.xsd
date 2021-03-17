@@ -6,7 +6,7 @@
 	<!--==== Definition of Enumerations-->
 	<xs:simpleType name="AdditionalTextMessageTypeEnumeration">
 		<xs:annotation>
-			<xs:documentation>XXX</xs:documentation>
+			<xs:documentation>Typ zprávy pro zprávné zobrazení piktogramů (viz grafický manuál)</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Air"/>
@@ -36,22 +36,24 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="RemoteControlMessageTypeEnumeration">
-			<xs:annotation>
-				<xs:documentation>Message type for CommandReceiver/RemoteControl</xs:documentation>
-			</xs:annotation>
-			<xs:restriction base="xs:string">
-				<xs:enumeration value="Ok"/>
-				<xs:enumeration value="Error"/>
-				<xs:enumeration value="DestinationRequest"/>
-				<xs:enumeration value="GetOnRequest"/>
-				<xs:enumeration value="StartRazzia"/> <!-- needs to be combined with Message parameter containing vehicle number -->
-				<xs:enumeration value="StopRazzia"/><!-- needs to be combined with Message parameter containing vehicle number -->
-			</xs:restriction>
-		</xs:simpleType>
-
+		<xs:annotation>
+			<xs:documentation>Message type for CommandReceiver/RemoteControl</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Ok"/>
+			<xs:enumeration value="Error"/>
+			<xs:enumeration value="DestinationRequest"/>
+			<xs:enumeration value="GetOnRequest"/>
+			<xs:enumeration value="StartRazzia"/>
+			<!-- needs to be combined with Message parameter containing vehicle number -->
+			<xs:enumeration value="StopRazzia"/>
+			<!-- needs to be combined with Message parameter containing vehicle number -->
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="ConnectionStateEnumeration">
 		<xs:annotation>
 			<xs:documentation>Information whether a connection will rest protected</xs:documentation>
+			<xs:documentation>Zatím nevyužito, informace o garantovaných spojích není k dispozici v MPVnet</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="ConnectionBroken"/>
@@ -64,30 +66,30 @@
 			<xs:documentation>Value, which is necessary for distinction between an Interchange and a Connection</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Interchange"/>
+			<xs:enumeration value="Interchange"/><!--využijte tuto hodnotu pro všechny přípoje, zbytek je pro budouí rozšíření-->
 			<xs:enumeration value="ProtectedConnection"/>
 			<xs:enumeration value="Static"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ConnectionPropertyEnumeration">
 		<xs:annotation>
-			<xs:documentation>XXX</xs:documentation>
+			<xs:documentation>Příznaky přípojů, zatím bude zobrazován jen příznak bebariérovosti.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Accessible"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="DataIntervalEnumeration">
+	<!--<xs:simpleType name="DataIntervalEnumeration">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="DistanceData"/>
 			<xs:enumeration value="GNSSData"/>
 			<xs:enumeration value="Heartbeat"/>
 			<xs:enumeration value="NetworkLocationData"/>
 		</xs:restriction>
-	</xs:simpleType>
+	</xs:simpleType>-->
 	<xs:simpleType name="DestinationPropertyEnumeration">
 		<xs:annotation>
-			<xs:documentation>XXX</xs:documentation>
+			<xs:documentation>Příznaky cílové zastávky</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Air"/>
@@ -122,7 +124,8 @@
 			<xs:enumeration value="TestDevice"/>
 			<xs:enumeration value="MultiFunctionalDisplay"/>
 			<xs:enumeration value="CombiDevice"/>
-			<xs:enumeration value="RemoteControlReceiver"/> <!-- povelový přijímač -->
+			<xs:enumeration value="RemoteControlReceiver"/>
+			<!-- povelový přijímač -->
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="DeviceStateEnumeration">
@@ -134,14 +137,15 @@
 			<xs:enumeration value="readyForShutdown"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="DeviceTaskEnumeration">
+	<!--<xs:simpleType name="DeviceTaskEnumeration">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="restart"/>
 			<xs:enumeration value="start_standby"/>
 			<xs:enumeration value="stop_standby"/>
 		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="DoorCountingObjectClassEnumeration">
+	</xs:simpleType>-->
+	<!-- pro budoucí využití s APC -->
+<!--<xs:simpleType name="DoorCountingObjectClassEnumeration">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Adult"/>
 			<xs:enumeration value="Child"/>
@@ -151,15 +155,15 @@
 			<xs:enumeration value="Unidentified"/>
 			<xs:enumeration value="Other"/>
 		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="DoorCountingQualityEnumeration">
+	</xs:simpleType>-->
+	<!--<xs:simpleType name="DoorCountingQualityEnumeration">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Defect"/>
 			<xs:enumeration value="Regular"/>
 			<xs:enumeration value="Sabotage"/>
 			<xs:enumeration value="Other"/>
 		</xs:restriction>
-	</xs:simpleType>
+	</xs:simpleType>-->
 	<xs:simpleType name="DoorOpenStateEnumeration">
 		<xs:annotation>
 			<xs:documentation>Information on the state of the doors in a vehicle</xs:documentation>
@@ -171,13 +175,13 @@
 			<xs:enumeration value="SingleDoorClosed"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="DoorOperationStateEnumeration">
+	<!--<xs:simpleType name="DoorOperationStateEnumeration">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Locked"/>
 			<xs:enumeration value="Normal"/>
 			<xs:enumeration value="EmergencyRelease"/>
 		</xs:restriction>
-	</xs:simpleType>
+	</xs:simpleType>-->
 	<xs:simpleType name="ErrorCodeEnumeration">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="DataEstimated"/>
@@ -267,7 +271,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="LinePropertyEnumeration">
 		<xs:annotation>
-			<xs:documentation>XXX</xs:documentation>
+			<xs:documentation>Příznaky linek - využití hlavně pro podbarvení pole linky/barvu fontu na LCD dle graf. manuálu</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Day"/>
@@ -296,7 +300,7 @@
 			<xs:enumeration value="unknown"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="RouteDirectionEnumeration">
+	<!--<xs:simpleType name="RouteDirectionEnumeration">
 		<xs:annotation>
 			<xs:documentation>Information on the general direction of a route</xs:documentation>
 		</xs:annotation>
@@ -307,30 +311,32 @@
 			<xs:enumeration value="Counterclockwise"/>
 			<xs:enumeration value="Other"/>
 		</xs:restriction>
-	</xs:simpleType>
+	</xs:simpleType>-->
 	<xs:simpleType name="ServiceNameEnumeration">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="CustomerInformationService"/>
 			<xs:enumeration value="DeviceManagementService"/>
-			<xs:enumeration value="JourneyInformationService"/>
-			<xs:enumeration value="BeaconLocationService"/>
-			<xs:enumeration value="DistanceLocationService"/>
+			<!--<xs:enumeration value="JourneyInformationService"/>-->
+			<!--<xs:enumeration value="BeaconLocationService"/>-->
+			<!--<xs:enumeration value="DistanceLocationService"/>-->
 			<xs:enumeration value="GNSSLocationService"/>
-			<xs:enumeration value="NetworkLocationService"/>
+			<!--<xs:enumeration value="NetworkLocationService"/>-->
+			<!-- budoucí využití-->
 			<xs:enumeration value="PassengerCountingService"/>
-			<xs:enumeration value="TicketingService"/>
+			<!--<xs:enumeration value="TicketingService"/>-->
 			<xs:enumeration value="TimeService"/>
 			<xs:enumeration value="TestService"/>
-			<xs:enumeration value="VideoLiveService"/>
-			<xs:enumeration value="VideoRecordingService"/>
-			<xs:enumeration value="VideoDisplayService"/>
-			<xs:enumeration value="DoorStateService"/>
-			<xs:enumeration value="TrainSetDataService"/>
-			<xs:enumeration value="TrainSetInformationService"/>
-			<xs:enumeration value="TrainSetManagementService"/>
+			<!--<xs:enumeration value="VideoLiveService"/>-->
+			<!--<xs:enumeration value="VideoRecordingService"/>-->
+			<!--<xs:enumeration value="VideoDisplayService"/>-->
+			<!--<xs:enumeration value="DoorStateService"/>-->
+			<!--<xs:enumeration value="TrainSetDataService"/>-->
+			<!--<xs:enumeration value="TrainSetInformationService"/>-->
+			<!--<xs:enumeration value="TrainSetManagementService"/>-->
 			<xs:enumeration value="TicketValidationService"/>
-			<xs:enumeration value="HTMLDisplayService"/>
-			<xs:enumeration value="SystemMonitoringService"/>
+			<!--<xs:enumeration value="HTMLDisplayService"/>-->
+			<!--<xs:enumeration value="SystemMonitoringService"/>-->
+			<xs:enumeration value="RemoteControlService"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ServiceStateEnumeration">
@@ -344,7 +350,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="StopPropertyEnumeration">
 		<xs:annotation>
-			<xs:documentation>XXX</xs:documentation>
+			<xs:documentation>Příznaky zastávek</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Air"/>
@@ -365,14 +371,14 @@
 			<xs:enumeration value="UndergroundD"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="SystemDocumentationInformationEnumeration">
+	<!--<xs:simpleType name="SystemDocumentationInformationEnumeration">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="ErrorMessage"/>
 			<xs:enumeration value="StatusMessage"/>
 			<xs:enumeration value="WarningMessage"/>
 			<xs:enumeration value="All"/>
 		</xs:restriction>
-	</xs:simpleType>
+	</xs:simpleType>-->
 	<xs:simpleType name="TicketRazziaInformationEnumeration">
 		<xs:restriction base="xs:string">
 			<xs:pattern value="razzia"/>
@@ -381,7 +387,7 @@
 			<xs:enumeration value="norazzia"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="TicketValidationEnumeration">
+	<!--<xs:simpleType name="TicketValidationEnumeration">
 		<xs:annotation>
 			<xs:documentation>Information about the result of ticket validation</xs:documentation>
 		</xs:annotation>
@@ -390,8 +396,8 @@
 			<xs:enumeration value="notvalid"/>
 			<xs:enumeration value="NoCard"/>
 		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="VehicleModeEnumeration">
+	</xs:simpleType>-->
+	<!--<xs:simpleType name="VehicleModeEnumeration">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="air"/>
 			<xs:enumeration value="bus"/>
@@ -402,10 +408,10 @@
 			<xs:enumeration value="tram"/>
 			<xs:enumeration value="underground"/>
 		</xs:restriction>
-	</xs:simpleType>
+	</xs:simpleType>-->
 	<xs:simpleType name="ViaPointPropertyEnumeration">
 		<xs:annotation>
-			<xs:documentation>XXX</xs:documentation>
+			<xs:documentation>Příznaky nácestných zastávek</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Air"/>
@@ -819,7 +825,7 @@
 	</xs:element>
 	<xs:simpleType name="TrolleybusSubmodeEnumeration">
 		<xs:annotation>
-			<xs:documentation>XXX</xs:documentation>
+			<xs:documentation>Trolejbus doplněn, neexistuje v NeTex specifikaci.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:NMTOKEN">
 			<xs:enumeration value="unknown"/>
@@ -843,5 +849,4 @@
 			<xs:enumeration value="airportLinkTrolleybus"/>
 		</xs:restriction>
 	</xs:simpleType>
-
 </xs:schema>

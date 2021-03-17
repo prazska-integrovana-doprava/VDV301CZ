@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <!-- Mit XMLSpy v2012 rel. 2 sp1 (http://www.altova.com) von Dirk Weißer (INIT GmbH) bearbeitet - inkl. CurrentDisplayContent 1:*-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:include schemaLocation="IBIS-IP_common_V2.2.xsd"/>
-	<xs:include schemaLocation="IBIS-IP_Enumerations_V2.2.xsd"/>
+	<xs:include schemaLocation="IBIS-IP_common_V2.2CZ1.0.xsd"/>
+	<xs:include schemaLocation="IBIS-IP_Enumerations_V2.2CZ1.0.xsd"/>
 	<!--==== CustomerInformationService Operations ====-->
 	<xs:group name="CustomerInformationServiceOperations">
 		<xs:sequence>
 			<xs:element name="CustomerInformationService.GetAllDataResponse" type="CustomerInformationService.GetAllDataResponseStructure"/>
-		<!--	<xs:element name="CustomerInformationService.GetCurrentAnnouncementResponse" type="CustomerInformationService.GetCurrentAnnouncementResponseStructure"/> -->
-		<!--	<xs:element name="CustomerInformationService.GetCurrentConnectionInformationResponse" type="CustomerInformationService.GetCurrentConnectionInformationResponseStructure"/> -->
+			<!--	<xs:element name="CustomerInformationService.GetCurrentAnnouncementResponse" type="CustomerInformationService.GetCurrentAnnouncementResponseStructure"/> -->
+			<!--	<xs:element name="CustomerInformationService.GetCurrentConnectionInformationResponse" type="CustomerInformationService.GetCurrentConnectionInformationResponseStructure"/> -->
 			<xs:element name="CustomerInformationService.GetCurrentDisplayContentResponse" type="CustomerInformationService.GetCurrentDisplayContentResponseStructure"/>
 			<xs:element name="CustomerInformationService.GetCurrentStopPointResponse" type="CustomerInformationService.GetCurrentStopPointResponseStructure"/>
-		<!--	<xs:element name="CustomerInformationService.GetCurrentStopIndexResponse" type="CustomerInformationService.GetCurrentStopIndexResponseStructure"/> -->
-		<!--	<xs:element name="CustomerInformationService.GetTripDataResponse" type="CustomerInformationService.GetTripDataResponseStructure"/> -->
+			<!--	<xs:element name="CustomerInformationService.GetCurrentStopIndexResponse" type="CustomerInformationService.GetCurrentStopIndexResponseStructure"/> -->
+			<!--	<xs:element name="CustomerInformationService.GetTripDataResponse" type="CustomerInformationService.GetTripDataResponseStructure"/> -->
 			<xs:element name="CustomerInformationService.GetVehicleDataResponse" type="CustomerInformationService.GetVehicleDataResponseStructure"/>
-		<!--	<xs:element name="CustomerInformationService.RetrievePartialStopSequenceRequest" type="CustomerInformationService.RetrievePartialStopSequenceRequestStructure"/> -->
-		<!--	<xs:element name="CustomerInformationService.RetrievePartialStopSequenceResponse" type="CustomerInformationService.RetrievePartialStopSequenceResponseStructure"/> -->
+			<!--	<xs:element name="CustomerInformationService.RetrievePartialStopSequenceRequest" type="CustomerInformationService.RetrievePartialStopSequenceRequestStructure"/> -->
+			<!--	<xs:element name="CustomerInformationService.RetrievePartialStopSequenceResponse" type="CustomerInformationService.RetrievePartialStopSequenceResponseStructure"/> -->
 		</xs:sequence>
 	</xs:group>
 	<!--=== ServiceDefinitions ===-->
@@ -30,10 +30,11 @@
 	<xs:complexType name="CustomerInformationService.AllData">
 		<xs:sequence>
 			<xs:element name="TimeStamp" type="IBIS-IP.dateTime"/>
-			<xs:element name="VehicleRef" type="IBIS-IP.NMTOKEN"> <!-- evidenční číslo vozidla -->
+			<xs:element name="VehicleRef" type="IBIS-IP.NMTOKEN">
 				<xs:annotation>
 					<xs:documentation>evidenční číslo vozidla PID</xs:documentation>
 				</xs:annotation>
+				<!-- evidenční číslo vozidla -->
 			</xs:element>
 			<xs:element name="DefaultLanguage" type="IBIS-IP.language">
 				<xs:annotation>
@@ -57,13 +58,13 @@
 				<xs:annotation>
 					<xs:documentation>Global display content - this content should be used if no stop specific display content is available
 					please make sure that the global display content and the stop specific content are provided for the same DisplayContentRefs. </xs:documentation>
-					Používat jen pro služební cíle!
+					<xs:documentation>Používat jen pro služební cíle!</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!--++ CurrentAnnouncement ++-->
-<!--	<xs:element name="CustomerInformationService.GetCurrentAnnouncementResponse" type="CustomerInformationService.GetCurrentAnnouncementResponseStructure"/>
+	<!--	<xs:element name="CustomerInformationService.GetCurrentAnnouncementResponse" type="CustomerInformationService.GetCurrentAnnouncementResponseStructure"/>
 	<xs:complexType name="CustomerInformationService.GetCurrentAnnouncementResponseStructure">
 		<xs:choice>
 			<xs:element name="CurrentAnnouncementData" type="CustomerInformationService.CurrentAnnouncementData"/>
@@ -77,7 +78,6 @@
 		</xs:sequence>
 	</xs:complexType>
 -->
-
 	<!--++ CurrentConnection ++-->
 	<!--
 	<xs:element name="CustomerInformationService.GetCurrentConnectionInformationResponse" type="CustomerInformationService.GetCurrentConnectionInformationResponseStructure"/>
@@ -176,7 +176,6 @@
 			<xs:group ref="VehicleInformationGroup"/>
 		</xs:sequence>
 	</xs:complexType>
-
 	<!--==== RetrievePartialStopSequence ====-->
 	<!--
 	<xs:element name="CustomerInformationService.RetrievePartialStopSequenceRequest" type="CustomerInformationService.RetrievePartialStopSequenceRequestStructure"/>
@@ -225,12 +224,14 @@
 			</xs:element>
 			<xs:element name="ExitSide" type="ExitSideEnumeration" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Pro budoucí využití v metru, lze vynechat | Defines the exit side</xs:documentation>
+					<xs:documentation>Defines the exit side</xs:documentation>
+					<xs:documentation>Pro budoucí využití v metru, lze vynechat</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MovingDirectionForward" type="IBIS-IP.boolean" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Pro budoucí využití u obousměrných tramvajích, v autobusu lze vynechat | Gives information, if the vehicle is moving forward, default value is "true"</xs:documentation>
+					<xs:documentation>Gives information, if the vehicle is moving forward, default value is "true"</xs:documentation>
+					<xs:documentation>Pro budoucí využití u obousměrných tramvají, v autobusu lze vynechat.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<!--
