@@ -49,7 +49,7 @@
 			<xs:documentation>Oznámení na panel</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="AdditionalTextMessageType" type="AdditionalTextMessageTypeEnumeration">
+			<xs:element name="AdditionalTextMessageType" type="AdditionalTextMessageTypeEnumeration" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Druh oznámení pro zbarvení podle grafického manuálu</xs:documentation>
 				</xs:annotation>
@@ -287,6 +287,31 @@
 			<xs:element name="DestinationName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Text of the destination</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DestinationFrontName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Text of the destination (outer front display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DestinationSideName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Text of the destination (outer side display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DestinationRearName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Text of the destination (outer rear display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DestinationLcdName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Text of the destination (inner LCD display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DestinationInnerName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Text of the destination (inner LED display)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DestinationShortName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
@@ -642,6 +667,11 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="StopName" type="InternationalTextType" maxOccurs="unbounded"/>
+			<xs:element name="StopFrontName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="StopSideName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="StopRearName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="StopLcdName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="StopInnerName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="StopAlternativeName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="StopProperty" type="StopPropertyEnumeration" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Platform" type="IBIS-IP.string" minOccurs="0"/>
@@ -798,6 +828,32 @@
 					<xs:documentation>The short name of the via place in the journey; used to help identify the vehicle to the public.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="PlaceFrontName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The name of the via place in the journey; used to help identify the vehicle to the public.(Front outside display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlaceSideName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The name of the via place in the journey; used to help identify the vehicle to the public.(Side outside display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlaceRearName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The name of the via place in the journey; used to help identify the vehicle to the public.(Rear outside display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlaceLcdName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The name of the via place in the journey; used to help identify the vehicle to the public.(LCD inside display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlaceInnerName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The name of the via place in the journey; used to help identify the vehicle to the public.(LED inside display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="ViaPointDisplayPriority" type="IBIS-IP.int" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Value, which defines a priority to select a number of via points, if not all via points can be shown</xs:documentation>
