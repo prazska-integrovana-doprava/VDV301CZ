@@ -279,8 +279,7 @@
 			<xs:enumeration value="Night"/>
 			<xs:enumeration value="Replacement"/>
 			<xs:enumeration value="Special"/>
-			<xs:enumeration value="WheelChair"/>
-			<xs:enumeration value="Night"/>
+			<xs:enumeration value="WheelChair"/>		
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="MessageTypeEnumeration">
