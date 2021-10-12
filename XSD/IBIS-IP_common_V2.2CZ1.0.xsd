@@ -2,9 +2,10 @@
 <!-- Mit XMLSpy v2012 rel. 2 sp1 (http://www.altova.com) von Dirk Weißer (INIT GmbH) bearbeitet -->
 <!-- Mit XMLSpy v2018 rel. 2  (http://www.altova.com) von Bernd Schubert (iris-GmbH) bearbeitet, IBIS-IP 2.1 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:include schemaLocation="IBIS-IP_Enumerations_V2.2.xsd"/>
+	<xs:include schemaLocation="IBIS-IP_Enumerations_V2.2CZ1.0.xsd"/>
 	<!--==== DataDefinitions ====-->
-	<xs:complexType name="AdditionalAnnouncementStructure">
+	<!-- vyždován je interní hlásič, tzn. příkazy pro hlásič nejsou využity. -->
+	<!--<xs:complexType name="AdditionalAnnouncementStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for decscribing the informations for an additional announcement</xs:documentation>
 		</xs:annotation>
@@ -42,30 +43,30 @@
 				</xs:element>
 			</xs:choice>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType>-->
 	<xs:complexType name="AdditionalTextMessageStructure">
 		<xs:annotation>
-			<xs:documentation>XXX</xs:documentation>
+			<xs:documentation>Oznámení na panel</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="AdditionalTextMessageType" type="AdditionalTextMessageTypeEnumeration">
+			<xs:element name="AdditionalTextMessageType" type="AdditionalTextMessageTypeEnumeration" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>XXX</xs:documentation>
+					<xs:documentation>Druh oznámení pro zbarvení podle grafického manuálu</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AdditionalTextMessageHeadline" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>XXX</xs:documentation>
+					<xs:documentation>Nadpis pro text</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AdditionalTextMessageText" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>XXX</xs:documentation>
+					<xs:documentation>obsah zprávy</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="AnnouncementStructure">
+	<!--<xs:complexType name="AnnouncementStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for decscribing the informations for an regular announcement</xs:documentation>
 		</xs:annotation>
@@ -86,8 +87,8 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="BayAreaStructure">
+	</xs:complexType>-->
+	<!--<xs:complexType name="BayAreaStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing an area at the stop point for detecting the right stop position</xs:documentation>
 		</xs:annotation>
@@ -103,8 +104,8 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="BeaconPointStructure">
+	</xs:complexType>-->
+	<!--<xs:complexType name="BeaconPointStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing a beacon point</xs:documentation>
 		</xs:annotation>
@@ -130,7 +131,7 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType>-->
 	<!-- <xs:complexType name="CardApplInformations">
 		<xs:sequence>
 			<xs:element name="CardApplInformationLength" type="IBIS-IP.unsignedInt">
@@ -167,29 +168,30 @@
 			<xs:element name="CardTypeText" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType> -->
-	<!-- <xs:complexType name="ConnectionStructure">
+	<xs:complexType name="ConnectionStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing a connection</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="StopRef" type="IBIS-IP.NMTOKEN" minOccurs="0">
+			<!--<xs:element name="StopRef" type="IBIS-IP.NMTOKEN" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>StopPoint, where the connection should take place (from planning system)</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-			<xs:element name="ConnectionRef" type="IBIS-IP.NMTOKEN" minOccurs="0">
+			</xs:element>-->
+			<!--<xs:element name="ConnectionRef" type="IBIS-IP.NMTOKEN" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>StopPoint-referenced connection-reference</xs:documentation>
 				</xs:annotation>
-			</xs:element>
+			</xs:element>-->
 			<xs:element name="ConnectionProperty" type="ConnectionPropertyEnumeration" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>XXX</xs:documentation>
+					<xs:documentation>příznak připoje - zatím jen Bezbariérovost. Pokud spoj není bezbariérový, vynechat.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ConnectionType" type="ConnectionTypeEnumeration">
 				<xs:annotation>
 					<xs:documentation>Describes the kind of connection </xs:documentation>
+					<xs:documentation>Primárně bude využito Interchange. Garantované přestupy (ProtectedConnection) nejsou zatím dostupné z MPVnet/Golemio. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DisplayContent" type="DisplayContentStructure" minOccurs="0">
@@ -200,21 +202,25 @@
 			<xs:element name="Platform" type="IBIS-IP.string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Platform, on which the connection should take place</xs:documentation>
+					<xs:documentation>Vynechat, pokud není informace dostupná.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ConnectionState" type="ConnectionStateEnumeration" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Describes the status of the connection</xs:documentation>
+					<xs:documentation>Použití jen u ProtectedConnection, tzn. lze zatím vynechat.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TransportMode" type="VehicleStructure" minOccurs="0">
+			<!-- zrušeno ve verzi 2.2 -->
+			<!--<xs:element name="TransportMode" type="VehicleStructure" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Describes the mode of the pick-up vehicle, DEPRECATED !, THE ConnectionMode SHOULD BE USED INSTEAD</xs:documentation>
 				</xs:annotation>
-			</xs:element>
+			</xs:element>-->
 			<xs:element name="ConnectionMode" type="NetexMode" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Mode- and Submode information of the pick-up vehicle in accordance with Netex</xs:documentation>
+					<xs:documentation>Oproti netexu byly doplněny další typy, např. trolejbus.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ExpectedDepartureTime" type="IBIS-IP.dateTime" minOccurs="0">
@@ -228,8 +234,9 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType> -->
-	<!-- <xs:complexType name="RemoteControlMessageStructure">
+	</xs:complexType>
+	<!-- ovládání povelového přijímače-->
+	<xs:complexType name="RemoteControlMessageStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing message received by Remote control receiver</xs:documentation>
 		</xs:annotation>
@@ -237,8 +244,8 @@
 			<xs:element name="MessageType" type="RemoteControlMessageTypeEnumeration"/>
 			<xs:element name="MessageParameter" type="IBIS-IP.string" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType> -->
-	<!-- <xs:complexType name="DataVersionStructure">
+	</xs:complexType>
+	<xs:complexType name="DataVersionStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing data-versions</xs:documentation>
 		</xs:annotation>
@@ -246,30 +253,32 @@
 			<xs:element name="DataType" type="IBIS-IP.string">
 				<xs:annotation>
 					<xs:documentation>Kind of data</xs:documentation>
+					<xs:documentation>typ dat: databáze/program atd.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="VersionRef" type="IBIS-IP.NMTOKEN">
 				<xs:annotation>
 					<xs:documentation>Versionreference of the data</xs:documentation>
+					<xs:documentation>Název nahrané verze</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType> -->
-	<!-- <xs:complexType name="DataVersionListStructure">
+	</xs:complexType>
+	<xs:complexType name="DataVersionListStructure">
 		<xs:sequence>
 			<xs:element name="DataVersion" type="DataVersionStructure" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType> -->
-	<!-- <xs:complexType name="DestinationStructure">
+	</xs:complexType>
+	<xs:complexType name="DestinationStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing destination information</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="DestinationRef" type="IBIS-IP.NMTOKEN" minOccurs="0">
+			<!--<xs:element name="DestinationRef" type="IBIS-IP.NMTOKEN" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Reference to the destination-information in the schedule-data</xs:documentation>
 				</xs:annotation>
-			</xs:element>
+			</xs:element>-->
 			<xs:element name="DestinationProperty" type="DestinationPropertyEnumeration" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Tags to add stop properties (eg. request stop)</xs:documentation>
@@ -280,44 +289,69 @@
 					<xs:documentation>Text of the destination</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="DestinationFrontName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Text of the destination (outer front display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DestinationSideName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Text of the destination (outer side display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DestinationRearName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Text of the destination (outer rear display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DestinationLcdName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Text of the destination (inner LCD display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DestinationInnerName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Text of the destination (inner LED display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="DestinationShortName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Shorttext of the destination if there is limited space</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType> -->
-	<!-- <xs:complexType name="DeviceInformationStructure">
+	</xs:complexType>
+	<xs:complexType name="DeviceInformationStructure">
 		<xs:sequence>
 			<xs:group ref="DeviceInformationGroup"/>
 			<xs:element name="DataVersionList" type="DataVersionListStructure" minOccurs="0"/>
 			<xs:element name="WebInterfaceAddress" type="IBIS-IP.anyURI" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType> -->
+	</xs:complexType>
 	<!-- <xs:complexType name="DeviceSpecificationListStructure">
 		<xs:sequence>
 			<xs:element name="DeviceSpecification" type="DeviceSpecificationStructure" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType> -->
-	<!-- <xs:complexType name="DeviceSpecificationStructure">
+	<xs:complexType name="DeviceSpecificationStructure">
 		<xs:sequence>
 			<xs:element name="DeviceClass" type="DeviceClassEnumeration"/>
 			<xs:element name="DeviceID" type="IBIS-IP.NMTOKEN"/>
 		</xs:sequence>
-	</xs:complexType> -->
+	</xs:complexType>
 	<!-- <xs:complexType name="DeviceSpecificationWithStateStructure">
 		<xs:sequence>
 			<xs:element name="DeviceSpecification" type="DeviceSpecificationStructure"/>
 			<xs:element name="DeviceState" type="DeviceStateEnumeration"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="DeviceSpecificationWithStateListStructure">
+	</xs:complexType>-->
+	<!--	<xs:complexType name="DeviceSpecificationWithStateListStructure">
 		<xs:sequence>
 			<xs:element name="DeviceSpecificationWithState" type="DeviceSpecificationWithStateStructure" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	-->
- <xs:complexType name="DisplayContentStructure">
+	<xs:complexType name="DisplayContentStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing the information for a headsign or a sidesign</xs:documentation>
 		</xs:annotation>
@@ -347,27 +381,32 @@
 					<xs:documentation>Additional Information Text, which could be displayed, e.g. "Extra Ride", "Express", ... </xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="RunNumber" type="IBIS-IP.int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The run number (Kurs-Nummer) the trip is operated </xs:documentation>
+					<xs:documentation>číslo pořadí pro pořaďovky/kurzovky</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:group ref="DisplayPolicyGroup" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Group for Display-Information if there is more than one content at the same time</xs:documentation>
 				</xs:annotation>
 			</xs:group>
 		</xs:sequence>
-	</xs:complexType> -->
-
+	</xs:complexType>
 	<xs:complexType name="FareZoneInformationStructure">
 		<xs:sequence>
-			<xs:element name="FareZoneID" type="IBIS-IP.NMTOKEN" minOccurs="0">
+			<!--<xs:element name="FareZoneID" type="IBIS-IP.NMTOKEN" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>unique ID for the farezone</xs:documentation>
 				</xs:annotation>
-			</xs:element>
+			</xs:element>	-->
 			<xs:element name="FareZoneType" type="ZoneType" minOccurs="0"/>
 			<xs:element name="FareZoneLongName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="FareZoneShortName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType> -->
-<!-- 	<xs:complexType name="GlobalCardStatus">
+	</xs:complexType>
+	<!-- 	<xs:complexType name="GlobalCardStatus">
 		<xs:sequence>
 			<xs:element name="GlobalCardStausID" type="IBIS-IP.unsignedInt">
 				<xs:annotation>
@@ -381,8 +420,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType> -->
-
- 	<xs:complexType name="GNSSPointStructure">
+	<xs:complexType name="GNSSPointStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing a GNSS-Point</xs:documentation>
 		</xs:annotation>
@@ -406,7 +444,7 @@
 			<xs:element name="Direction" type="IBIS-IP.string"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="JourneyStopInformationStructure">
+	<!--<xs:complexType name="JourneyStopInformationStructure">
 		<xs:sequence>
 			<xs:element name="StopRef" type="IBIS-IP.string" minOccurs="0">
 				<xs:annotation>
@@ -430,22 +468,23 @@
 			<xs:element name="GNSSPoint" type="GNSSPointStructure" minOccurs="0"/>
 			<xs:element name="FareZone" type="FareZoneInformationStructure" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType>-->
 	<xs:complexType name="LineInformationStructure">
 		<xs:sequence>
-			<xs:element name="LineRef" type="IBIS-IP.string" minOccurs="0"/>
+			<!--<xs:element name="LineRef" type="IBIS-IP.string" minOccurs="0"/>-->
 			<xs:element name="LineProperty" type="LinePropertyEnumeration" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="LineName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="LineShortName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="LineNumber" type="IBIS-IP.int" minOccurs="0"/>
-			<xs:element name="LineCode" type="IBIS-IP.int" minOccurs="0">
+			<!--<xs:element name="LineCode" type="IBIS-IP.int" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>identifier of a symbol number , which is used by displays see LINIEN_CODE in VDV 452 chapter 9.7.2 REC_LID</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			-->
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="LogMessageStructure">
+	<!--<xs:complexType name="LogMessageStructure">
 		<xs:sequence>
 			<xs:element name="MessageProvider" type="DeviceSpecificationStructure">
 				<xs:annotation>
@@ -454,7 +493,7 @@
 			</xs:element>
 			<xs:element name="Message" type="MessageStructure"/>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType>-->
 	<xs:complexType name="MessageStructure">
 		<xs:sequence>
 			<xs:element name="Message-ID" type="IBIS-IP.int"/>
@@ -467,12 +506,12 @@
 			<xs:element name="MessageText" type="IBIS-IP.string"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="PointSequenceStructure">
+	<!--<xs:complexType name="PointSequenceStructure">
 		<xs:sequence>
 			<xs:element name="Point" type="PointStructure" minOccurs="2" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="PointStructure">
+	</xs:complexType>-->
+	<!--<xs:complexType name="PointStructure">
 		<xs:sequence>
 			<xs:element name="PointIndex" type="IBIS-IP.int"/>
 			<xs:element name="PointType" type="PointTypeStructure"/>
@@ -482,8 +521,9 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="PointTypeStructure">
+	</xs:complexType>-->
+	<!-- budoucí využití pro preferenci -->
+	<!--<xs:complexType name="PointTypeStructure">
 		<xs:choice>
 			<xs:element name="StopPoint" type="JourneyStopInformationStructure">
 				<xs:annotation>
@@ -503,13 +543,13 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
-	</xs:complexType>
-	<xs:complexType name="SpecificPointStructure">
+	</xs:complexType>-->
+	<!--<xs:complexType name="SpecificPointStructure">
 		<xs:sequence>
 			<xs:element name="PointRef" type="IBIS-IP.NMTOKEN"/>
 			<xs:element name="DistanceToPreviousPoint" type="IBIS-IP.double"/>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType>-->
 	<xs:complexType name="ServiceSpecificationStructure">
 		<xs:sequence>
 			<xs:element name="ServiceName" type="ServiceNameEnumeration"/>
@@ -533,17 +573,17 @@
 			<xs:element name="Device" type="DeviceSpecificationStructure"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="ServiceIdentificationWithStateStructure">
+	<!--<xs:complexType name="ServiceIdentificationWithStateStructure">
 		<xs:sequence>
 			<xs:element name="ServiceIdentification" type="ServiceIdentificationStructure"/>
 			<xs:element name="ServiceState" type="ServiceStateEnumeration"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="ServiceIdentificationWithStateListStructure">
+	</xs:complexType>-->
+	<!--<xs:complexType name="ServiceIdentificationWithStateListStructure">
 		<xs:sequence>
 			<xs:element name="ServiceIdentificationWithState" type="ServiceIdentificationWithStateStructure" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType>-->
 	<xs:complexType name="ServiceInformationListStructure">
 		<xs:sequence>
 			<xs:element name="ServiceInformation" type="ServiceInformationStructure" maxOccurs="unbounded"/>
@@ -555,29 +595,29 @@
 			<xs:element name="Autostart" type="IBIS-IP.boolean"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="ServiceStartStructure">
+	<!--<xs:complexType name="ServiceStartStructure">
 		<xs:sequence>
 			<xs:element name="ServiceIdentification" type="ServiceIdentificationStructure"/>
 			<xs:element name="Autostart" type="IBIS-IP.boolean"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="ServiceStartListStructure">
+	</xs:complexType>-->
+	<!--<xs:complexType name="ServiceStartListStructure">
 		<xs:sequence>
 			<xs:element name="ServiceIdentification" type="ServiceIdentificationStructure" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="ShortTripStopListStructure">
+	</xs:complexType>-->
+	<!--<xs:complexType name="ShortTripStopListStructure">
 		<xs:sequence>
 			<xs:element name="ShortTripStop" type="ShortTripStopStructure" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="ShortTripStopStructure">
+	</xs:complexType>-->
+	<!--<xs:complexType name="ShortTripStopStructure">
 		<xs:sequence>
 			<xs:element name="JourneyStopInformation" type="JourneyStopInformationStructure"/>
 			<xs:element name="FareZoneInformation" type="FareZoneInformationStructure"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="StopInformationRequestStructure">
+	</xs:complexType>-->
+	<!--<xs:complexType name="StopInformationRequestStructure">
 		<xs:sequence>
 			<xs:element name="StopIndex" type="IBIS-IP.int" minOccurs="0">
 				<xs:annotation>
@@ -612,7 +652,7 @@
 			</xs:element>
 			<xs:element name="FareZone" type="IBIS-IP.string" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType>-->
 	<xs:complexType name="StopInformationStructure">
 		<xs:sequence>
 			<xs:element name="StopIndex" type="IBIS-IP.int">
@@ -623,27 +663,38 @@
 			<xs:element name="StopRef" type="IBIS-IP.NMTOKEN" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Reference to the stoppoint from the planning system	</xs:documentation>
+					<xs:documentation>CIS číslo zastávky, využití pro APC</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StopProperty" type="StopPropertyEnumeration" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="StopName" type="InternationalTextType" maxOccurs="unbounded"/>
-			<xs:element name="StopProperty" type="StopPropertyEnumeration" minOccurs="0"/>
+			<xs:element name="StopFrontName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="StopSideName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="StopRearName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="StopLcdName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="StopInnerName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="StopAlternativeName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="StopProperty" type="StopPropertyEnumeration" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Platform" type="IBIS-IP.string" minOccurs="0"/>
 			<xs:element name="DisplayContent" type="DisplayContentStructure" maxOccurs="unbounded"/>
-			<xs:element name="StopAnnouncement" type="AnnouncementStructure" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- <xs:element name="StopAnnouncement" type="AnnouncementStructure" minOccurs="0" maxOccurs="unbounded"/> -->
 			<xs:element name="ArrivalScheduled" type="IBIS-IP.dateTime" minOccurs="0"/>
+			<xs:element name="ArrivalExpected" type="IBIS-IP.dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A resolution of 30s is recommended, for the display it is recommended to show the arrival time in minutes.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="DepartureScheduled" type="IBIS-IP.dateTime" minOccurs="0"/>
-			<xs:element name="RecordedArrivalTime" type="IBIS-IP.dateTime" minOccurs="0">
+			<xs:element name="DepartureExpected" type="IBIS-IP.dateTime" minOccurs="0"/>
+			<!--<xs:element name="RecordedArrivalTime" type="IBIS-IP.dateTime" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>This Value is needed for the demonstration at the SSB</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-			<xs:element name="DistanceToNextStop" type="IBIS-IP.int" minOccurs="0">
+			</xs:element>-->
+			<!--<xs:element name="DistanceToNextStop" type="IBIS-IP.int" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Soll-Abstand zwischen den Haltestellen</xs:documentation>
 				</xs:annotation>
-			</xs:element>
+			</xs:element>-->
 			<xs:element name="Connection" type="ConnectionStructure" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Information on Connections or Interchanges; not in StopSequence because of RealTimeInformation</xs:documentation>
@@ -652,29 +703,30 @@
 			<xs:element name="FareZone" type="FareZoneInformationStructure" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="StopPointTariffInformationStructure">
+	<!--<xs:complexType name="StopPointTariffInformationStructure">
 		<xs:sequence>
 			<xs:element name="JourneyStopInformation" type="JourneyStopInformationStructure"/>
 			<xs:element name="FareZoneInformation" type="FareZoneInformationStructure"/>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType>-->
 	<xs:complexType name="StopSequenceStructure">
 		<xs:sequence>
 			<xs:element name="StopPoint" type="StopInformationStructure" minOccurs="2" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="TimingPointStructure">
+	<!--<xs:complexType name="TimingPointStructure">
 		<xs:sequence>
 			<xs:element name="TimingPointRef" type="IBIS-IP.NMTOKEN" minOccurs="0"/>
 			<xs:element name="ScheduleTime" type="IBIS-IP.dateTime"/>
 			<xs:element name="GNSSPoint" type="GNSSPointStructure"/>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType>-->
 	<xs:complexType name="TripInformationStructure">
 		<xs:sequence>
 			<xs:element name="TripRef" type="IBIS-IP.NMTOKEN">
 				<xs:annotation>
-					<xs:documentation>Trip number for trip number displays </xs:documentation>
+					<xs:documentation>Trip number</xs:documentation>
+					<xs:documentation>číslo spoje</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="StopSequence" type="StopSequenceStructure">
@@ -690,25 +742,39 @@
 			<xs:element name="TimetableDelay" type="IBIS-IP.int" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Delay in seconds. Early times are shown as negative values.</xs:documentation>
-					<xs:documentation>
-            			tbd: what happens, if this value isn't set
-            		</xs:documentation>
+					<xs:documentation>vynechat v případě, že zpoždění není dostupné</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AdditionalTextMessage" type="AdditionalTextMessageStructure" minOccurs="0"/>
-			<xs:element name="AdditionalAnnouncement" type="AdditionalAnnouncementStructure" minOccurs="0" maxOccurs="unbounded">
+			<!--<xs:element name="AdditionalAnnouncement" type="AdditionalAnnouncementStructure" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>not StopPointAnnouncements; additional announcements; e.g. of the operator or dispatcher</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-			<xs:element name="RouteDirection" type="RouteDirectionEnumeration" minOccurs="0">
+			</xs:element> -->
+			<!--<xs:element name="RouteDirection" type="RouteDirectionEnumeration" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The direction of the route, 1->forward 2->backwards and  0->UNDEFINED </xs:documentation>
 				</xs:annotation>
+			</xs:element>-->
+			<xs:element name="RunNumber" type="IBIS-IP.int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The run number (Kurs-Nummer) the trip is operated </xs:documentation>
+					<xs:documentation>Číslo pořadí pro pořaďovky </xs:documentation>
+				</xs:annotation>
 			</xs:element>
+			<!--<xs:element name="PatternNumber" type="IBIS-IP.int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The pattern number (Linienfahrweg-Nummer) the trip is operated </xs:documentation>
+				</xs:annotation>
+			</xs:element>	-->
+			<!--<xs:element name="PathDestinationNumber" type="IBIS-IP.int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The path destination number (RoutenZiel-Nummer) the trip is operated </xs:documentation>
+				</xs:annotation>
+			</xs:element>-->
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="TripSequenceStructure">
+	<!--<xs:complexType name="TripSequenceStructure">
 		<xs:sequence>
 			<xs:element name="TripRef" type="IBIS-IP.NMTOKEN"/>
 			<xs:element name="TripIndex" type="IBIS-IP.int" minOccurs="0"/>
@@ -725,33 +791,33 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="TSPPointStructure">
+	</xs:complexType>-->
+	<!--<xs:complexType name="TSPPointStructure">
 		<xs:sequence>
 			<xs:element name="TSPPointRef" type="IBIS-IP.NMTOKEN" minOccurs="0"/>
 			<xs:element name="TSPCode" type="IBIS-IP.NMTOKEN"/>
 			<xs:element name="ShortName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Desciption" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="VehicleStructure">
+	</xs:complexType>-->
+	<!--<xs:complexType name="VehicleStructure">
 		<xs:sequence>
 			<xs:element name="VehicleTypeRef" type="IBIS-IP.NMTOKEN"/>
 			<xs:element name="Name" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType>-->
 	<xs:complexType name="ViaPointStructure">
 		<xs:annotation>
 			<xs:documentation>Structure for describing a via point on journey.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ViaPointRef" type="IBIS-IP.NMTOKEN" minOccurs="0"/>
+			<!-- <xs:element name="ViaPointRef" type="IBIS-IP.NMTOKEN" minOccurs="0"/> -->
 			<xs:element name="ViaPointProperty" type="ViaPointPropertyEnumeration" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="PlaceRef" type="IBIS-IP.NMTOKEN" minOccurs="0">
+			<!--<xs:element name="PlaceRef" type="IBIS-IP.NMTOKEN" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The identifier of the via place in the journey; used to help identify the vehicle journey on arrival boards.</xs:documentation>
 				</xs:annotation>
-			</xs:element>
+			</xs:element>-->
 			<xs:element name="PlaceName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The name of the via place in the journey; used to help identify the vehicle to the public.</xs:documentation>
@@ -762,9 +828,36 @@
 					<xs:documentation>The short name of the via place in the journey; used to help identify the vehicle to the public.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="PlaceFrontName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The name of the via place in the journey; used to help identify the vehicle to the public.(Front outside display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlaceSideName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The name of the via place in the journey; used to help identify the vehicle to the public.(Side outside display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlaceRearName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The name of the via place in the journey; used to help identify the vehicle to the public.(Rear outside display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlaceLcdName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The name of the via place in the journey; used to help identify the vehicle to the public.(LCD inside display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlaceInnerName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The name of the via place in the journey; used to help identify the vehicle to the public.(LED inside display)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="ViaPointDisplayPriority" type="IBIS-IP.int" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Value, which defines a priority to select a number of via points, if not all via points can be shown</xs:documentation>
+					<xs:documentation>Zatím nebude využíváno, lze vynechat. Jinak všude shodná hodnota 1.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -783,52 +876,53 @@
 			<xs:element name="ErrorCode" type="ErrorCodeEnumeration" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="DoorCountingListStructure">
+	<!--Buducí využití pro APC-->
+	<!--<xs:complexType name="DoorCountingListStructure">
 		<xs:sequence>
 			<xs:element name="DoorID" type="IBIS-IP.NMTOKEN"/>
 			<xs:element name="CountSet" type="DoorCountingStructure" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="DoorCountingStructure">
+	</xs:complexType>-->
+	<!--<xs:complexType name="DoorCountingStructure">
 		<xs:sequence>
 			<xs:element name="ObjectClass" type="DoorCountingObjectClassEnumeration"/>
 			<xs:element name="In" type="IBIS-IP.int"/>
 			<xs:element name="Out" type="IBIS-IP.int"/>
 			<xs:element name="CountQuality" type="DoorCountingQualityEnumeration" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="DoorInformationStructure">
+	</xs:complexType>-->
+	<!--<xs:complexType name="DoorInformationStructure">
 		<xs:sequence>
 			<xs:element name="DoorID" type="IBIS-IP.NMTOKEN"/>
 			<xs:element name="Count" type="DoorCountingStructure" maxOccurs="unbounded"/>
 			<xs:element name="State" type="DoorStateStructure" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="DoorOpenStateStructure">
+	</xs:complexType>-->
+	<!--<xs:complexType name="DoorOpenStateStructure">
 		<xs:sequence>
 			<xs:element name="Value" type="DoorOpenStateEnumeration"/>
 			<xs:element name="ErrorCode" type="ErrorCodeEnumeration" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="DoorOperationStateStructure">
+	</xs:complexType>-->
+	<!--<xs:complexType name="DoorOperationStateStructure">
 		<xs:sequence>
 			<xs:element name="Value" type="DoorOperationStateEnumeration"/>
 			<xs:element name="ErrorCode" type="ErrorCodeEnumeration" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="DoorStateStructure">
+	</xs:complexType>-->
+	<!--<xs:complexType name="DoorStateStructure">
 		<xs:sequence>
 			<xs:element name="OpenState" type="DoorOpenStateStructure"/>
 			<xs:element name="OperationState" type="DoorOperationStateStructure" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType>-->
 	<!--==== IBIS-IP-Types ====-->
-	<xs:complexType name="DegreeType">
+	<!--<xs:complexType name="DegreeType">
 		<xs:sequence>
 			<xs:element name="Degree" type="IBIS-IP.double"/>
 			<xs:element name="Orientation" type="IBIS-IP.string"/>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType>-->
 	<xs:complexType name="IBIS-IP.anyURI">
 		<xs:sequence>
 			<xs:element name="Value" type="xs:anyURI"/>
@@ -841,12 +935,12 @@
 			<xs:element name="ErrorCode" type="ErrorCodeEnumeration" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="IBIS-IP.byte">
+	<!--<xs:complexType name="IBIS-IP.byte">
 		<xs:sequence>
 			<xs:element name="Value" type="xs:byte"/>
 			<xs:element name="ErrorCode" type="ErrorCodeEnumeration" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType>-->
 	<xs:complexType name="IBIS-IP.date">
 		<xs:sequence>
 			<xs:element name="Value" type="xs:date"/>
@@ -895,12 +989,12 @@
 			<xs:element name="ErrorCode" type="ErrorCodeEnumeration" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="IBIS-IP.normalizedString">
+	<!--<xs:complexType name="IBIS-IP.normalizedString">
 		<xs:sequence>
 			<xs:element name="Value" type="xs:normalizedString"/>
 			<xs:element name="ErrorCode" type="ErrorCodeEnumeration" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType>-->
 	<xs:complexType name="IBIS-IP.string">
 		<xs:sequence>
 			<xs:element name="Value" type="xs:string"/>
@@ -913,18 +1007,18 @@
 			<xs:element name="ErrorCode" type="ErrorCodeEnumeration" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="IBIS-IP.unsignedInt">
+	<!--<xs:complexType name="IBIS-IP.unsignedInt">
 		<xs:sequence>
 			<xs:element name="Value" type="xs:unsignedInt"/>
 			<xs:element name="ErrorCode" type="ErrorCodeEnumeration" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="IBIS-IP.unsignedLong">
+	</xs:complexType>-->
+	<!--<xs:complexType name="IBIS-IP.unsignedLong">
 		<xs:sequence>
 			<xs:element name="Value" type="xs:unsignedLong"/>
 			<xs:element name="ErrorCode" type="ErrorCodeEnumeration" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType>-->
 	<!--==== StructureDefinitions ====-->
 	<xs:element name="SubscribeRequest" type="SubscribeRequestStructure"/>
 	<xs:complexType name="SubscribeRequestStructure">
