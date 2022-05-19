@@ -406,6 +406,24 @@
 			<xs:element name="FareZoneShortName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="FareZoneChangeStructure">
+		<xs:sequence>
+			<xs:element name="FromFareZones" type="FareZoneGroupStructure" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ToFareZones" type="FareZoneGroupStructure" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FareZoneSystemChangeStructure">
+		<xs:sequence>
+			<xs:element name="FromFareZoneSystem" type="ZoneType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ToFareSystemZones" type="ZoneType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FareZoneGroupStructure">
+		<xs:sequence>
+			<xs:element name="FareZone" type="FareZoneInformationStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
 	<!-- 	<xs:complexType name="GlobalCardStatus">
 		<xs:sequence>
 			<xs:element name="GlobalCardStausID" type="IBIS-IP.unsignedInt">
@@ -723,12 +741,7 @@
 	</xs:complexType>-->
 	<xs:complexType name="TripInformationStructure">
 		<xs:sequence>
-			<xs:element name="TripRef" type="IBIS-IP.NMTOKEN">
-				<xs:annotation>
-					<xs:documentation>Trip number</xs:documentation>
-					<xs:documentation>číslo spoje</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:element name="TripRef" type="IBIS-IP.NMTOKEN"/> <!-- Trip number/číslo spoje -->
 			<xs:element name="StopSequence" type="StopSequenceStructure">
 				<xs:annotation>
 					<xs:documentation>List of StopPoints; with additional information</xs:documentation>
@@ -745,6 +758,7 @@
 					<xs:documentation>vynechat v případě, že zpoždění není dostupné</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+
 			<xs:element name="AdditionalTextMessage" type="AdditionalTextMessageStructure" minOccurs="0"/>
 			<!--<xs:element name="AdditionalAnnouncement" type="AdditionalAnnouncementStructure" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
@@ -756,10 +770,23 @@
 					<xs:documentation>The direction of the route, 1->forward 2->backwards and  0->UNDEFINED </xs:documentation>
 				</xs:annotation>
 			</xs:element>-->
+
 			<xs:element name="RunNumber" type="IBIS-IP.int" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The run number (Kurs-Nummer) the trip is operated </xs:documentation>
 					<xs:documentation>Číslo pořadí pro pořaďovky </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FareZoneChange" type="FareZoneChangeStructure" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The manual display of FareZone change screen  </xs:documentation>
+					<xs:documentation>Manuální vyvolání zobrazení obrazovky se změnou tarifního pásma </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FareZoneSystemChange" type="FareZoneSystemChangeStructure" minOccurs="0"  maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The manual display of FareZoneSystem change screen  </xs:documentation>
+					<xs:documentation>Manuální vyvolání zobrazení obrazovky se změnou tarifního systému </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<!--<xs:element name="PatternNumber" type="IBIS-IP.int" minOccurs="0">
