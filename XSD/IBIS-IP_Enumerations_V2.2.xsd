@@ -4,37 +4,6 @@
 <!-- Mit XMLSpy v2018 rel. 2  (http://www.altova.com) von Bernd Schubert (iris-GmbH) bearbeitet, IBIS-IP 2.1 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<!--==== Definition of Enumerations-->
-	<xs:simpleType name="AdditionalTextMessageTypeEnumeration">
-		<xs:annotation>
-			<xs:documentation>XXX</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Air"/>
-			<xs:enumeration value="Bus"/>
-			<xs:enumeration value="Congestion"/>
-			<xs:enumeration value="Diversion"/>
-			<xs:enumeration value="Exclamation"/>
-			<xs:enumeration value="Ferry"/>
-			<xs:enumeration value="Funicular"/>
-			<xs:enumeration value="GoFurther"/>
-			<xs:enumeration value="Info"/>
-			<xs:enumeration value="Luggage"/>
-			<xs:enumeration value="Night"/>
-			<xs:enumeration value="NoFood"/>
-			<xs:enumeration value="Pid"/>
-			<xs:enumeration value="Pram"/>
-			<xs:enumeration value="ReplacementStop"/>
-			<xs:enumeration value="Telecabin"/>
-			<xs:enumeration value="Train"/>
-			<xs:enumeration value="Tram"/>
-			<xs:enumeration value="Trolleybus"/>
-			<xs:enumeration value="UndergroundA"/>
-			<xs:enumeration value="UndergroundB"/>
-			<xs:enumeration value="UndergroundC"/>
-			<xs:enumeration value="UndergroundD"/>
-			<xs:enumeration value="WheelChair"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="ConnectionStateEnumeration">
 		<xs:annotation>
 			<xs:documentation>Information whether a connection will rest protected</xs:documentation>
@@ -54,40 +23,12 @@
 			<xs:enumeration value="ProtectedConnection"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="ConnectionPropertyEnumeration">
-		<xs:annotation>
-			<xs:documentation>XXX</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Accessible"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="DataIntervalEnumeration">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="DistanceData"/>
 			<xs:enumeration value="GNSSData"/>
 			<xs:enumeration value="Heartbeat"/>
 			<xs:enumeration value="NetworkLocationData"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="DestinationPropertyEnumeration">
-		<xs:annotation>
-			<xs:documentation>XXX</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Air"/>
-			<xs:enumeration value="Bus"/>
-			<xs:enumeration value="Ferry"/>
-			<xs:enumeration value="Funicular"/>
-			<xs:enumeration value="ReplacementService"/>
-			<xs:enumeration value="Telecabin"/>
-			<xs:enumeration value="Train"/>
-			<xs:enumeration value="Tram"/>
-			<xs:enumeration value="Trolleybus"/>
-			<xs:enumeration value="UndergroundA"/>
-			<xs:enumeration value="UndergroundB"/>
-			<xs:enumeration value="UndergroundC"/>
-			<xs:enumeration value="UndergroundD"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="DeviceClassEnumeration">
@@ -249,20 +190,6 @@
 			<xs:enumeration value="BetweenStop"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="LinePropertyEnumeration">
-		<xs:annotation>
-			<xs:documentation>XXX</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Day"/>
-			<xs:enumeration value="Diversion"/>
-			<xs:enumeration value="Night"/>
-			<xs:enumeration value="Replacement"/>
-			<xs:enumeration value="Special"/>
-			<xs:enumeration value="WheelChair"/>
-			<xs:enumeration value="Night"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="MessageTypeEnumeration">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Status"/>
@@ -326,29 +253,6 @@
 			<xs:enumeration value="starting"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="StopPropertyEnumeration">
-		<xs:annotation>
-			<xs:documentation>XXX</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Air"/>
-			<xs:enumeration value="Bus"/>
-			<xs:enumeration value="Ferry"/>
-			<xs:enumeration value="Funicular"/>
-			<xs:enumeration value="Night"/>
-			<xs:enumeration value="ReplacementService"/>
-			<xs:enumeration value="ReplacementStop"/>
-			<xs:enumeration value="RequestStop"/>
-			<xs:enumeration value="Telecabin"/>
-			<xs:enumeration value="Train"/>
-			<xs:enumeration value="Tram"/>
-			<xs:enumeration value="Trolleybus"/>
-			<xs:enumeration value="UndergroundA"/>
-			<xs:enumeration value="UndergroundB"/>
-			<xs:enumeration value="UndergroundC"/>
-			<xs:enumeration value="UndergroundD"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="SystemDocumentationInformationEnumeration">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="ErrorMessage"/>
@@ -387,33 +291,9 @@
 			<xs:enumeration value="underground"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="ViaPointPropertyEnumeration">
-		<xs:annotation>
-			<xs:documentation>XXX</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Air"/>
-			<xs:enumeration value="Bus"/>
-			<xs:enumeration value="Ferry"/>
-			<xs:enumeration value="Funicular"/>
-			<xs:enumeration value="Night"/>
-			<xs:enumeration value="ReplacementService"/>
-			<xs:enumeration value="ReplacementStop"/>
-			<xs:enumeration value="RequestStop"/>
-			<xs:enumeration value="Telecabin"/>
-			<xs:enumeration value="Train"/>
-			<xs:enumeration value="Tram"/>
-			<xs:enumeration value="Trolleybus"/>
-			<xs:enumeration value="UndergroundA"/>
-			<xs:enumeration value="UndergroundB"/>
-			<xs:enumeration value="UndergroundC"/>
-			<xs:enumeration value="UndergroundD"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="TripStateEnumeration">
 		<xs:annotation>
 			<xs:documentation>Information about trip state,
-				Could be used for displaying special messages on signals/erasing signs
 			EmptyRun: trips is selected but has not yet started ( e.g. drive from depot to first stop point )
 			OnTrip: on trip ,
 			OffTrip: trip has ended there is no next trip yet, ( e.g. drive to the depot )
@@ -795,37 +675,5 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ======================================================================= -->
-	<!-- ======================================================================= -->
-	<xs:element name="TrolleybusSubmode" type="TrolleybusSubmodeEnumeration" default="unknown">
-		<xs:annotation>
-			<xs:documentation>TPEG pti05 Bus submodes.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:simpleType name="TrolleybusSubmodeEnumeration">
-		<xs:annotation>
-			<xs:documentation>XXX</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:NMTOKEN">
-			<xs:enumeration value="unknown"/>
-			<xs:enumeration value="undefined"/>
-			<xs:enumeration value="localTrolleybus"/>
-			<xs:enumeration value="regionalTrolleybus"/>
-			<xs:enumeration value="expressTrolleybus"/>
-			<xs:enumeration value="nightTrolleybus"/>
-			<xs:enumeration value="postTrolleybus"/>
-			<xs:enumeration value="specialNeedsTrolleybus"/>
-			<xs:enumeration value="mobilityTrolleybus"/>
-			<xs:enumeration value="mobilityTrolleybusForRegisteredDisabled"/>
-			<xs:enumeration value="sightseeingTrolleybus"/>
-			<xs:enumeration value="shuttleTrolleybus"/>
-			<xs:enumeration value="highFrequencyTrolleybus"/>
-			<xs:enumeration value="dedicatedLaneTrolleybus"/>
-			<xs:enumeration value="schoolTrolleybus"/>
-			<xs:enumeration value="schoolAndPublicServiceTrolleybus"/>
-			<xs:enumeration value="railReplacementTrolleybus"/>
-			<xs:enumeration value="demandAndResponseTrolleybus"/>
-			<xs:enumeration value="airportLinkTrolleybus"/>
-		</xs:restriction>
-	</xs:simpleType>
 
 </xs:schema>

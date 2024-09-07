@@ -12,3 +12,8 @@ The documentation is available in Czech at the moment.
 * https://www.vdv.de - Verband Deutscher Verkehrsunternehmen e.V. (VDV)
 * https://www.vdv.de/ip-kom-oev.aspx - Internet Protokoll basierte Kommunikationsdienste im ÖV (IP-KOM-ÖV)
 * https://forum.vdv.de - Bulletin board for companies and other parties interested in VDV 301
+
+
+## Changelog
+- 20240907
+    - initial commit of 2.3CZ1.0 version
