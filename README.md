@@ -15,5 +15,7 @@ The documentation is available in Czech at the moment.
 
 
 ## Changelog
+- 20241110
+    - rename XSD files to 2.3CZ1.0 version
 - 20240907
     - initial commit of 2.3CZ1.0 version

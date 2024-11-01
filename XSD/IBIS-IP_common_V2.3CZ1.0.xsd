@@ -2,7 +2,7 @@
 <!-- Mit XMLSpy v2012 rel. 2 sp1 (http://www.altova.com) von Dirk Weißer (INIT GmbH) bearbeitet -->
 <!-- Mit XMLSpy v2018 rel. 2  (http://www.altova.com) von Bernd Schubert (iris-GmbH) bearbeitet, IBIS-IP 2.1 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:include schemaLocation="IBIS-IP_Enumerations_V2.2.xsd"/>
+	<xs:include schemaLocation="IBIS-IP_Enumerations_V2.3CZ1.0.xsd"/>
 	<!--==== DataDefinitions ====-->
 	<xs:complexType name="AdditionalAnnouncementStructure">
 		<xs:annotation>
