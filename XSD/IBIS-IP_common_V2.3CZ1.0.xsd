@@ -374,6 +374,17 @@
 			<xs:element name="FareZoneShortName" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="FareZoneChangeStructure">
+		<xs:sequence>
+			<xs:element name="FromFareZones" type="FareZoneGroupStructure" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ToFareZones" type="FareZoneGroupStructure" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FareZoneGroupStructure">
+		<xs:sequence>
+			<xs:element name="FareZone" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="GlobalCardStatus">
 		<xs:sequence>
 			<xs:element name="GlobalCardStausID" type="IBIS-IP.unsignedInt">
@@ -656,7 +667,7 @@
 					<xs:documentation>Information on Connections or Interchanges; not in StopSequence because of RealTimeInformation</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="FareZone" type="IBIS-IP.NMTOKEN" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="FareZone" type="InternationalTextType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="StopPointTariffInformationStructure">
@@ -732,7 +743,13 @@
 				<xs:annotation>
 					<xs:documentation>The path destination number (RoutenZiel-Nummer) the trip is operated </xs:documentation>
 				</xs:annotation>
-			</xs:element>									
+			</xs:element>		
+			<xs:element name="FareZoneChange" type="FareZoneChangeStructure" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The manual display of FareZone change screen  </xs:documentation>
+					<xs:documentation>Manuální vyvolání zobrazení obrazovky se změnou tarifního pásma </xs:documentation>
+				</xs:annotation>
+			</xs:element>							
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="TripSequenceStructure">

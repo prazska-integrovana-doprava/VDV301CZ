@@ -15,6 +15,8 @@ The documentation is available in Czech at the moment.
 
 
 ## Changelog
+- 20241103
+    - added fareZoneChange to IBIS-IP_common_V2.3CZ1.0.xsd
 - 20241110
     - rename XSD files to 2.3CZ1.0 version
 - 20240907
