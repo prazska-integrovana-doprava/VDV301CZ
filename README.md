@@ -15,6 +15,8 @@ The documentation is available in Czech at the moment.
 
 
 ## Changelog
+- 20241121
+    - added required elements list to IBIS-IP_CustomerInformationService_V2.3CZ1.0
 - 20241103
     - added fareZoneChange to IBIS-IP_common_V2.3CZ1.0.xsd
 - 20241110
