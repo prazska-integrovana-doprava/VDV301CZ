@@ -29,23 +29,23 @@
 	</xs:complexType>
 	<xs:complexType name="CustomerInformationService.AllData">
 		<xs:sequence>
-			<xs:element name="TimeStamp" type="IBIS-IP.dateTime"/>
-			<xs:element name="VehicleRef" type="IBIS-IP.NMTOKEN"/>
-			<xs:element name="DefaultLanguage" type="IBIS-IP.language"/>
-			<xs:element name="TripInformation" type="TripInformationStructure" minOccurs="0" maxOccurs="2">
+			<xs:element name="TimeStamp" type="IBIS-IP.dateTime"/> <!-- required -->
+			<xs:element name="VehicleRef" type="IBIS-IP.NMTOKEN"/> <!-- required -->
+			<xs:element name="DefaultLanguage" type="IBIS-IP.language"/> <!-- required -->
+			<xs:element name="TripInformation" type="TripInformationStructure" minOccurs="0" maxOccurs="2"> <!-- required, omitted when not on trip -->
 				<xs:annotation>
 					<xs:documentation>if vehicle is not on a trip and no tripinformation is available occurrence typically is 0
 									if vehicle is on a trip or knows the next trip to run  occurrence typically is 1
 									if vehicle is on a trip and also knows the subsequent trip that info can be provided in the second TripInformation so occurrence is 2</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="CurrentStopIndex" type="IBIS-IP.int">
+			<xs:element name="CurrentStopIndex" type="IBIS-IP.int"> <!-- required -->
 				<xs:annotation>
 					<xs:documentation>Index of the Stoppoint in the Stopsequence, which is the next Stop</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:group ref="VehicleInformationGroup"/>
-			<xs:element name="GlobalDisplayContent" type="DisplayContentStructure" minOccurs="0" maxOccurs="unbounded">
+			<xs:group ref="VehicleInformationGroup"/> <!-- required -->
+			<xs:element name="GlobalDisplayContent" type="DisplayContentStructure" minOccurs="0" maxOccurs="unbounded"> <!-- required, used when vehicle is not on trip and texts like NOT IN SERVICE are shown on external displays -->
 				<xs:annotation>
 					<xs:documentation>Global display content - this content should be used if no stop specific display content is available
 					please make sure that the global display content and the stop specific content are provided for the same DisplayContentRefs. </xs:documentation>
@@ -83,16 +83,16 @@
 	</xs:complexType>
 	<!--++ CurrentDisplayContent ++-->
 	<xs:element name="CustomerInformationService.GetCurrentDisplayContentResponse" type="CustomerInformationService.GetCurrentDisplayContentResponseStructure"/>
-	<xs:complexType name="CustomerInformationService.GetCurrentDisplayContentResponseStructure">
+	<xs:complexType name="CustomerInformationService.GetCurrentDisplayContentResponseStructure"> <!-- required -->
 		<xs:choice>
-			<xs:element name="CurrentDisplayContentData" type="CustomerInformationService.CurrentDisplayContentData"/>
+			<xs:element name="CurrentDisplayContentData" type="CustomerInformationService.CurrentDisplayContentData"/> <!-- required -->
 			<xs:element name="OperationErrorMessage" type="IBIS-IP.string"/>
 		</xs:choice>
 	</xs:complexType>
-	<xs:complexType name="CustomerInformationService.CurrentDisplayContentData">
+	<xs:complexType name="CustomerInformationService.CurrentDisplayContentData"> <!-- required -->
 		<xs:sequence>
-			<xs:element name="TimeStamp" type="IBIS-IP.dateTime"/>
-			<xs:element name="CurrentDisplayContent" type="DisplayContentStructure" maxOccurs="unbounded"/>
+			<xs:element name="TimeStamp" type="IBIS-IP.dateTime"/> <!-- required -->
+			<xs:element name="CurrentDisplayContent" type="DisplayContentStructure" maxOccurs="unbounded"/> <!-- required -->
 		</xs:sequence>
 	</xs:complexType>
 	<!--++ CurrentStopPoint ++-->
@@ -188,7 +188,7 @@
 					<xs:documentation>Contains the information about route deviation</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DoorState" type="DoorOpenStateEnumeration" minOccurs="0"> <!-- required -->
+			<xs:element name="DoorState" type="DoorOpenStateEnumeration" minOccurs="0"> <!-- required in the future, now omitted if DoorState is not known to OBU -->
 				<xs:annotation>
 					<xs:documentation>Information on DoorState</xs:documentation>
 				</xs:annotation>

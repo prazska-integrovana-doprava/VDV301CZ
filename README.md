@@ -15,8 +15,19 @@ The documentation is available in Czech at the moment.
 
 
 ## Changelog
-- 20241121
-    - added required elements list to IBIS-IP_CustomerInformationService_V2.3CZ1.0
+- 20241204
+    - IBIS-IP_CustomerInformationService_V2.3CZ1.0.xsd
+        - added required elements comments 
+    - IBIS-IP_common_V2.3CZ1.0.xsd
+        - added required elements comments 
+            - DisplayContentStructure
+                - RunNumber changed type to InternationalTextType (used for display)
+            - TripInformationStructure
+                - RunNumber changed type to IBIS-IP.string (used for data pairing, to allow for rootLine_order pattern)
+    - IBIS-IP_Enumerations_V2.3CZ1.0.xsd
+        - added trolleybus submode
+            
+    - deleted outdated .docx documentation
 - 20241103
     - added fareZoneChange to IBIS-IP_common_V2.3CZ1.0.xsd
 - 20241110
