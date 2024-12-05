@@ -634,9 +634,14 @@
 					<xs:documentation>StopIndex on current trip	</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="StopRef" type="IBIS-IP.NMTOKEN"> <!-- required, used u_z numbering-->
+			<xs:element name="StopRef" type="IBIS-IP.NMTOKEN"> <!-- required, used u_z numbering, noRef if PID numbers not provided -->
 				<xs:annotation>
 					<xs:documentation>Reference to the stoppoint from the planning system	</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GlobalStopRef" type="IBIS-IP.NMTOKEN"> <!-- required, using CIS numbers-->
+				<xs:annotation>
+					<xs:documentation>Reference to the stoppoint from the global/national planning system	</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="StopName" type="InternationalTextType" maxOccurs="unbounded"/> <!-- required-->

@@ -15,6 +15,10 @@ The documentation is available in Czech at the moment.
 
 
 ## Changelog
+- 20241205_1505
+    - deleted outdate demo XML files
+    - IBIS-IP_common_V2.3CZ1.0.xsd
+        -  added GlobalStopRef to StopPoint
 - 20241204
     - IBIS-IP_CustomerInformationService_V2.3CZ1.0.xsd
         - added required elements comments 
