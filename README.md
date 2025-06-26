@@ -15,6 +15,8 @@ The documentation is available in Czech at the moment.
 
 
 ## Changelog
+- 20250626_1719
+    - removed fareZoneChange from IBIS-IP_common_V2.3CZ1.0.xsd
 - 20241205_1505
     - deleted outdate demo XML files
     - IBIS-IP_common_V2.3CZ1.0.xsd
