@@ -1,11 +1,11 @@
-# VDV301CZ
+# VDV301CZ V2.3CZ1.0
 
 This is modified version of VDV301 for usage in Czech Republic, especially for Prague Integrated Transport. Its development is in beta stage at the moment, created to satisfy contemporary needs of PID, ready to accept new propositions.
 All the changes are to be slowly proposed and merged into official/mainline VDV301.
 The documentation is available in Czech at the moment.
 
 ### Graphic design manual for passenger information systems
-* https://pid.cz/wp-content/uploads/2018/04/Priloha_10_OIS_ve_vozidlech_PID_vcetne_navaznych_priloh.pdf
+* https://pid.cz/wp-content/uploads/system/sk_bus/SK_bus_priloha_odbavovaci_a_informacni_zarizeni_2024-12-01.pdf
 
 ### Weblinks to original VDV301
 
@@ -15,6 +15,9 @@ The documentation is available in Czech at the moment.
 
 
 ## Changelog
+- 20250626_1719
+    - readme headline change
+    - fixed link to a PDF
 - 20250626_1719
     - removed fareZoneChange from IBIS-IP_common_V2.3CZ1.0.xsd
 - 20241205_1505
