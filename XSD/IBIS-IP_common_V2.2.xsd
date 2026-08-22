@@ -229,32 +229,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="RemoteControlMessageStructure">
-		<xs:annotation>
-			<xs:documentation>Structure for describing message received by Remote control receiver</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="MessageType" type="RemoteControlMessageTypeEnumeration"/>
-			<xs:element name="MessageParameter" type="IBIS-IP.string" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="DataVersionStructure">
-		<xs:annotation>
-			<xs:documentation>Structure for describing data-versions</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="DataType" type="IBIS-IP.string">
-				<xs:annotation>
-					<xs:documentation>Kind of data</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="VersionRef" type="IBIS-IP.NMTOKEN">
-				<xs:annotation>
-					<xs:documentation>Versionreference of the data</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="DataVersionListStructure">
 		<xs:sequence>
 			<xs:element name="DataVersion" type="DataVersionStructure" minOccurs="0" maxOccurs="unbounded"/>

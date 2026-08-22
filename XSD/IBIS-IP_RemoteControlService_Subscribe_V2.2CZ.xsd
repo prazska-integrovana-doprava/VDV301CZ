@@ -1,29 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Mit XMLSpy v2012 rel. 2 sp1 (http://www.altova.com) von Dirk Weißer (INIT GmbH) bearbeitet -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:include schemaLocation="IBIS-IP_common_V2.2.xsd"/>
-<!--	<xs:group name="RemoteControlServiceOperations">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+  <xs:include schemaLocation="IBIS-IP_common_V2.2.xsd" />
+  <!--	<xs:group name="RemoteControlServiceOperations">
 		<xs:sequence>
 -->
-			<xs:element name="RemoteControlService.GetAllDataResponse" type="RemoteControlService.GetAllDataResponseStructure"/>
-<!--		</xs:sequence>
+  <xs:element name="RemoteControlService.GetAllDataResponse"
+    type="RemoteControlService.GetAllDataResponseStructure" />
+  <!--		</xs:sequence>
 	</xs:group>
 
 -->
-	<!--==== Service Definitions ====-->
-	<!--==== Structure Definitions ====-->
-	<xs:complexType name="RemoteControlService.GetAllDataResponseStructure">
-		<xs:sequence>
-			<xs:element name="TimeStamp" type="IBIS-IP.dateTime">
-				<xs:annotation>
-					<xs:documentation>Time of RF signal reception</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="MessageContent" type="RemoteControlMessageStructure" >
-				<xs:annotation>
-					<xs:documentation>Content received in message</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
+  <!--====
+  Service Definitions ====-->
+  <!--====
+  Structure Definitions ====-->
+  <xs:complexType name="RemoteControlService.GetAllDataResponseStructure">
+    <xs:sequence>
+      <xs:element name="TimeStamp" type="IBIS-IP.dateTime">
+        <xs:annotation>
+          <xs:documentation>Time of RF signal reception</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MessageContent" type="RemoteControlMessageStructure">
+        <xs:annotation>
+          <xs:documentation>Content received in message</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RemoteControlMessageStructure">
+    <xs:annotation>
+      <xs:documentation>Structure for describing message received by Remote control receiver</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="MessageType" type="RemoteControlMessageTypeEnumeration" />
+      <xs:element name="MessageParameter" type="IBIS-IP.string" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DataVersionStructure">
+    <xs:annotation>
+      <xs:documentation>Structure for describing data-versions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="DataType" type="IBIS-IP.string">
+        <xs:annotation>
+          <xs:documentation>Kind of data</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VersionRef" type="IBIS-IP.NMTOKEN">
+        <xs:annotation>
+          <xs:documentation>Versionreference of the data</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="RemoteControlMessageTypeEnumeration">
+    <xs:annotation>
+      <xs:documentation>Message type for CommandReceiver/RemoteControl</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ok" />
+      <xs:enumeration value="Error" />
+      <xs:enumeration value="DestinationRequest" />
+      <xs:enumeration value="GetOnRequest" />
+      <xs:enumeration value="StartRazzia" /> <!-- needs to be combined with Message parameter
+      containing vehicle number -->
+      <xs:enumeration value="StopRazzia" /><!-- needs to be combined with Message parameter
+      containing vehicle number -->
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>
