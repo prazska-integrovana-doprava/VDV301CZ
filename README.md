@@ -15,31 +15,39 @@ The documentation is available in Czech at the moment.
 
 
 ## Changelog
+- 20260822_1603
+  - TicketValidationService XSD now bound to 2.3CZ1.0 enumerations and common xsd
+
 - 20250626_1719
-    - readme headline change
-    - fixed link to a PDF
+  - readme headline change
+  - fixed link to a PDF
+
 - 20250626_1719
-    - removed fareZoneChange from IBIS-IP_common_V2.3CZ1.0.xsd
+  - removed fareZoneChange from IBIS-IP_common_V2.3CZ1.0.xsd
+
 - 20241205_1505
-    - deleted outdate demo XML files
-    - IBIS-IP_common_V2.3CZ1.0.xsd
-        -  added GlobalStopRef to StopPoint
+  - deleted outdate demo XML files
+  - IBIS-IP_common_V2.3CZ1.0.xsd
+    -  added GlobalStopRef to StopPoint
+
 - 20241204
-    - IBIS-IP_CustomerInformationService_V2.3CZ1.0.xsd
-        - added required elements comments 
-    - IBIS-IP_common_V2.3CZ1.0.xsd
-        - added required elements comments 
-            - DisplayContentStructure
-                - RunNumber changed type to InternationalTextType (used for display)
-            - TripInformationStructure
-                - RunNumber changed type to IBIS-IP.string (used for data pairing, to allow for rootLine_order pattern)
-    - IBIS-IP_Enumerations_V2.3CZ1.0.xsd
-        - added trolleybus submode
-            
-    - deleted outdated .docx documentation
+  - IBIS-IP_CustomerInformationService_V2.3CZ1.0.xsd
+    - added required elements comments 
+  - IBIS-IP_common_V2.3CZ1.0.xsd
+    - added required elements comments 
+      - DisplayContentStructure
+        - RunNumber changed type to InternationalTextType (used for display)
+      - TripInformationStructure
+        - RunNumber changed type to IBIS-IP.string (used for data pairing, to allow for rootLine_order pattern)
+  - IBIS-IP_Enumerations_V2.3CZ1.0.xsd
+    - added trolleybus submode      
+  - deleted outdated .docx documentation
+
 - 20241103
-    - added fareZoneChange to IBIS-IP_common_V2.3CZ1.0.xsd
+  - added fareZoneChange to IBIS-IP_common_V2.3CZ1.0.xsd
+
 - 20241110
-    - rename XSD files to 2.3CZ1.0 version
+  - rename XSD files to 2.3CZ1.0 version
+  
 - 20240907
-    - initial commit of 2.3CZ1.0 version
+  - initial commit of 2.3CZ1.0 version
