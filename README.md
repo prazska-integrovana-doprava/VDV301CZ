@@ -15,6 +15,9 @@ The documentation is available in Czech at the moment.
 
 
 ## Changelog
+- 20260822_1859
+  - RemoteControlService concept
+  
 - 20260822_1603
   - TicketValidationService XSD now bound to 2.3CZ1.0 enumerations and common xsd
 
