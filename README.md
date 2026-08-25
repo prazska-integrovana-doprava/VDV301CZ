@@ -15,6 +15,9 @@ The documentation is available in Czech at the moment.
 
 
 ## Changelog
+- 20260825_1629
+  - RemoteControlService XSD file rename 
+  
 - 20260822_1859
   - RemoteControlService concept
   
